@@ -7,16 +7,22 @@ import random
 import pathlib
 import string
 import platform
-
+#query
+#"jujutsu||blood||creepy||horror||dota||elf||gibly||lofi||bloodc||chill||arch||power||shell||akira||castle||computer||apex||evangelion||dorohedoro||demon"       
 currentOs=platform.system()
 if currentOs=='Windows':  
   DOWNLOAD_DIR = "C:/Users/Yutah/Pictures/fondosRandom"
 else:
-  DOWNLOAD_DIR = f"{str(pathlib.Path.home())}/yutah/Pictures/wallpapers"
+  DOWNLOAD_DIR = f"{str(pathlib.Path.home())}/Pictures/wallpapersRandoms"
 
-
+print( f'Saving on {DOWNLOAD_DIR}')
 def generate_id():
     return ''.join(random.choices(string.ascii_lowercase+string.digits, k=6))
+
+def generate_seed():
+    seed=''.join(random.choices(string.ascii_lowercase+string.digits, k=6))
+    print(seed)
+    return seed
 
 def get_ext(url):
     ext = os.path.splitext(url)[1]
@@ -37,8 +43,9 @@ def wallpaper_search_api(query):
     parameters = {'.&categories=010'
                   '&sorting=random'
                   '&purity=110'
-                  '&seed=4aEzf9'
-                  #'&page=3'
+                  '&seed='+generate_seed()+
+                  '&page=1'
+                  '&ratios=16x9'
                   '&atleast=1920x1080.'}
     query_url = f"https://wallhaven.cc/api/v1/search?q={query}{str(parameters).split('.')[1]}" 
     
@@ -47,6 +54,22 @@ def wallpaper_search_api(query):
     res = requests.get(query_url)
     response = res.json()
     dl_links = []
+    for wallpaper in response["data"]:
+        dl_links.append(wallpaper["path"])
+
+    parameters = {'.&categories=010'
+                  '&sorting=random'
+                  '&purity=110'
+                  '&seed='+generate_seed()+
+                  '&page=2'
+                  '&ratios=16x9'
+                  '&atleast=1920x1080.'}
+    query_url = f"https://wallhaven.cc/api/v1/search?q={query}{str(parameters).split('.')[1]}" 
+    
+    
+    print(query_url)
+    res = requests.get(query_url)
+    response = res.json()
     for wallpaper in response["data"]:
         dl_links.append(wallpaper["path"])
 
