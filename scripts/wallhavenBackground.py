@@ -39,39 +39,25 @@ def clean(dir):
    for f in os.listdir(dir):
     os.remove(os.path.join(dir, f))
 
-def wallpaper_search_api(query):
-    parameters = {'.&categories=010'
-                  '&sorting=random'
-                  '&purity=110'
-                  '&seed='+generate_seed()+
-                  '&page=1'
-                  '&ratios=16x9'
-                  '&atleast=1920x1080.'}
-    query_url = f"https://wallhaven.cc/api/v1/search?q={query}{str(parameters).split('.')[1]}" 
-    
-    
-    print(query_url)
-    res = requests.get(query_url)
-    response = res.json()
+def wallpaper_search_api(query,pages):
     dl_links = []
-    for wallpaper in response["data"]:
-        dl_links.append(wallpaper["path"])
+    seed=generate_seed()
+    for page in range(pages):
+        parameters = {'.&categories=010'
+                    '&sorting=random'
+                    '&purity=110'
+                    '&seed='+seed+
+                    '&page='+str(page+1)+
+                    '&ratios=16x9'
+                    '&atleast=1920x1080.'}
+        query_url = f"https://wallhaven.cc/api/v1/search?q={query}{str(parameters).split('.')[1]}" 
+        print(query_url)
 
-    parameters = {'.&categories=010'
-                  '&sorting=random'
-                  '&purity=110'
-                  '&seed='+generate_seed()+
-                  '&page=2'
-                  '&ratios=16x9'
-                  '&atleast=1920x1080.'}
-    query_url = f"https://wallhaven.cc/api/v1/search?q={query}{str(parameters).split('.')[1]}" 
-    
-    
-    print(query_url)
-    res = requests.get(query_url)
-    response = res.json()
-    for wallpaper in response["data"]:
-        dl_links.append(wallpaper["path"])
+        res = requests.get(query_url)
+        response = res.json()
+        
+        for wallpaper in response["data"]:
+            dl_links.append(wallpaper["path"])
 
     return dl_links
 
@@ -82,7 +68,7 @@ if len(sys.argv) < 2:
 
 clean(DOWNLOAD_DIR)
 query = sys.argv[1].replace(' ', '')
-wallpapers = wallpaper_search_api(query)
+wallpapers = wallpaper_search_api(query,4)
 
 print(len(wallpapers))
 for wallpaper in wallpapers:
