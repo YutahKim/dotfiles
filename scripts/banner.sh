@@ -8,5 +8,8 @@ var=$(( ( RANDOM % 110 )  + 1 ))
 #/home/yutah/.local/bin/pixcat thumbnail --size 50 -r nearest -a left "/home/yutah/Pictures/banners/heroes/hero $var.png"
 chafa -s 8 "/home/yutah/Pictures/banners/heroes/hero $var.png"
 
+#cols=$(/usr/bin/tput cols)
+#kitty +kitten icat"/home/yutah/Pictures/banners/heroes/hero\ #var.png"
+
 #/home/yutah/.local/bin/pixcat "/home/yutah/Pictures/banners/heroes/hero $var.png"
 #viu -t -b -w 10 -h 5 "/home/yutah/Pictures/banners/heroes/hero $var.png"
