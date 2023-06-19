@@ -13,7 +13,7 @@ currentOs=platform.system()
 if currentOs=='Windows':  
   DOWNLOAD_DIR = "C:/Users/Yutah/Pictures/fondosRandom"
 else:
-  DOWNLOAD_DIR = f"{str(pathlib.Path.home())}/Pictures/wallpapersRandoms"
+  DOWNLOAD_DIR = f"{str(pathlib.Path.home())}/Pictures/bg"
 
 print( f'Saving on {DOWNLOAD_DIR}')
 def generate_id():
