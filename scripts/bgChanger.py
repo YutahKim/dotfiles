@@ -1,7 +1,10 @@
 import os
 import time
+import daemon
 
-while True:
+with daemon.DaemonContext():
+    while True:
     
-    os.system("feh --bg-fill --randomize $HOME/Pictures/bg/*")
-    time.sleep(60)
+        os.system("feh --bg-fill --randomize $HOME/Pictures/bg/*")
+        time.sleep(60)
+
