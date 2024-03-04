@@ -1,63 +1,45 @@
-# Greeting
-#echo "Welcome to Parrot OS"
-#/home/yutah/Documents/Progra/scripts/banner.sh
-
-# Prompt
-PROMPT="%F{red}┌[%f%F{cyan}%m%f%F{red}]─[%f%F{yellow}%D{%H:%M-%d/%m}%f%F{red}]─[%f%F{magenta}%d%f%F{red}]%f"$'\n'"%F{red}└╼%f%F{green}$USER%f%F{yellow}$%f"
-# Export PATH$
-export PATH=~/.local/bin:/snap/bin:/usr/sandbox/:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/share/games:/usr/local/sbin:/usr/sbin:/sbin:$PATH
-export _JAVA_AWT_WM_NONREPARENTING=1
-
-# alias
-alias ls='ls -lh --color=auto'
-alias dir='dir --color=auto'
-alias vdir='vdir --color=auto'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-
-#custom alias
-alias ll='lsd -l'
-alias ls='lsd'
-alias cat='batcat'
-alias cls='clear'
-alias clear='cls && /home/yutah/Documents/Progra/scripts/banner.sh'
-clear
-
-#####################################################
-# Auto completion / suggestion
-# Mixing zsh-autocomplete and zsh-autosuggestions
-# Requires: zsh-autocomplete (custom packaging by Parrot Team)
-# Jobs: suggest files / foldername / histsory bellow the prompt
-# Requires: zsh-autosuggestions (packaging by Debian Team)
-# Jobs: Fish-like suggestion for command history
-source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-# Select all suggestion instead of top on result only
-zstyle ':autocomplete:tab:*' insert-unambiguous yes
-zstyle ':autocomplete:tab:*' widget-style menu-select
-zstyle ':autocomplete:*' min-input 2
-bindkey $key[Up] up-line-or-history
-bindkey $key[Down] down-line-or-history
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 
-##################################################
-# Fish like syntax highlighting
-# Requires "zsh-syntax-highlighting" from apt
+# The following lines were added by compinstall
 
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+zstyle ':completion:*' completer _complete _ignored _approximate
+zstyle ':completion:*' matcher-list '' '' 'm:{[:lower:]}={[:upper:]} m:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
+zstyle :compinstall filename '/home/yutah/.zshrc'
 
-# Save type history for completion and easier life
-HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=1000
-#setopt appendhistory
-setopt histignorealldups sharehistory
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=3000
+SAVEHIST=3000
+# End of lines configured by zsh-newuser-install
 
-# Useful alias for benchmarking programs
-# require install package "time" sudo apt install time
-# alias time="/usr/bin/time -f '\t%E real,\t%U user,\t%S sys,\t%K amem,\t%M mmem'"
-# Display last command interminal
-echo -en "\e]2;Parrot Terminal\a"
-preexec () { print -Pn "\e]0;$1 - Parrot Terminal\a" }
+#alias
+alias reso="xrandr --output DP-2 --mode  3440x1440 --rate 100.00  --output DP-1 --mode 2560x1440 --right-of DP-2"
+alias resodual="xrandr --output DP-2 --mode  1720x1440 --output DP-1 --mode 2560x1440 --right-of DP-2"
+alias ll="lsd -l"
+alias ls="lsd -a"
+alias cat="bat"
+
+#plugins
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-sudo/sudo.plugin.zsh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+bindkey  "^[[H"   beginning-of-line
+bindkey  "^[[F"   end-of-line
+bindkey  "^[[3~"  delete-char
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
 
