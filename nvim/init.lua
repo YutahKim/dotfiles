@@ -1,4 +1,5 @@
 require('yutah.mappings')
+require('yutah.settings')
 
 -- Bootstrap Lazy.nvim
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
@@ -215,6 +216,24 @@ require('lazy').setup({
     end
   },
 
+   -- Persistence plugin
+  {
+    'folke/persistence.nvim',
+    config = function()
+      require('persistence').setup({
+        dir = vim.fn.stdpath("data") .. "/sessions/", -- Directory where session files are saved
+        options = { "buffers", "curdir", "tabpages", "winsize" }, -- Options to save
+      })
+      -- Auto-load the session if one exists for the current directory
+      vim.api.nvim_create_autocmd("VimEnter", {
+        callback = function()
+          if vim.fn.argc() == 0 then
+            require('persistence').load({ last = true })
+          end
+        end,
+      })
+    end
+  },
   -- Start screen
   {
   'goolord/alpha-nvim',
@@ -224,5 +243,5 @@ require('lazy').setup({
     startify.nvim_web_devicons = false  -- Ensure icons are enabled
     require('alpha').setup(startify.config)
   end
-}
+  }
 })
