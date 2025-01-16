@@ -1,3 +1,5 @@
+require('yutah.mappings')
+
 -- Bootstrap Lazy.nvim
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
@@ -21,37 +23,67 @@ require('lazy').setup({
       require('nvim-tree').setup()
     end
   },
-  
-  -- Autocomplete
+   -- LuaSnip for snippets
+  {
+    'L3MON4D3/LuaSnip',
+    config = function()
+      require('luasnip').setup({
+        -- Add any desired configuration here
+      })
+      -- Load snippets from friendly-snippets or your own snippets
+      require('luasnip.loaders.from_vscode').lazy_load()
+    end
+  },
+   -- Autocomplete setup
   {
     'hrsh7th/nvim-cmp',
     requires = {
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-path',
-      'hrsh7th/cmp-cmdline',
-      'L3MON4D3/LuaSnip',
-      'saadparwaiz1/cmp_luasnip'
+      'hrsh7th/cmp-nvim-lsp',     -- LSP completion
+      'hrsh7th/cmp-buffer',       -- Buffer completion
+      'hrsh7th/cmp-path',         -- Path completion
+      'hrsh7th/cmp-cmdline',      -- Command-line completion
+      'L3MON4D3/LuaSnip',         -- Snippet engine
+      'saadparwaiz1/cmp_luasnip', -- Snippet completion source
     },
     config = function()
       local cmp = require('cmp')
+      local luasnip = require('luasnip')
       cmp.setup({
         snippet = {
           expand = function(args)
-            require('luasnip').lsp_expand(args.body)
+            luasnip.lsp_expand(args.body)
           end
+        },
+        mapping = {
+          ['<Tab>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+          ['<S-Tab>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+          ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item
+          ['<C-Space>'] = cmp.mapping.complete(),           -- Trigger completion
         },
         sources = cmp.config.sources({
           { name = 'nvim_lsp' },
-          { name = 'luasnip' }
+          { name = 'luasnip' },
         }, {
           { name = 'buffer' },
+          { name = 'path' },
+        })
+      })
+      -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore)
+      cmp.setup.cmdline('/', {
+        sources = {
+          { name = 'buffer' }
+        }
+      })
+      -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore)
+      cmp.setup.cmdline(':', {
+        sources = cmp.config.sources({
           { name = 'path' }
+        }, {
+          { name = 'cmdline' }
         })
       })
     end
   },
-  
  -- LSP (Language Server Protocol)
   {
     'neovim/nvim-lspconfig',
