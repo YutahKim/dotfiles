@@ -22,7 +22,22 @@ require('lazy').setup({
     requires = { 'nvim-tree/nvim-web-devicons' },
     config = function()
       require('nvim-tree').setup()
-    end
+      end
+    },
+   
+    -- Add Mason to your plugin list
+    {
+        "williamboman/mason.nvim",
+        dependencies = {
+            "williamboman/mason-lspconfig.nvim",
+            "neovim/nvim-lspconfig",
+        },
+        config = function()
+            require("mason").setup()
+            require("mason-lspconfig").setup({
+              ensure_installed = { "ts_ls", "pyright", "html", "cssls", "lua_ls" }
+          })
+      end
   },
    -- LuaSnip for snippets
   {
@@ -36,73 +51,86 @@ require('lazy').setup({
     end
   },
    -- Autocomplete setup
-  {
+ {
     'hrsh7th/nvim-cmp',
-    requires = {
-      'hrsh7th/cmp-nvim-lsp',     -- LSP completion
-      'hrsh7th/cmp-buffer',       -- Buffer completion
-      'hrsh7th/cmp-path',         -- Path completion
-      'hrsh7th/cmp-cmdline',      -- Command-line completion
-      'L3MON4D3/LuaSnip',         -- Snippet engine
-      'saadparwaiz1/cmp_luasnip', -- Snippet completion source
+    dependencies = {
+        'hrsh7th/cmp-nvim-lsp',
+        'hrsh7th/cmp-buffer',
+        'hrsh7th/cmp-path',
+        'hrsh7th/cmp-cmdline',
+        'L3MON4D3/LuaSnip',
+        'saadparwaiz1/cmp_luasnip',
     },
     config = function()
-      local cmp = require('cmp')
-      local luasnip = require('luasnip')
-      cmp.setup({
-        snippet = {
-          expand = function(args)
-            luasnip.lsp_expand(args.body)
-          end
-        },
-        mapping = {
-          ['<Tab>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-          ['<S-Tab>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-          ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item
-          ['<C-Space>'] = cmp.mapping.complete(),           -- Trigger completion
-        },
-        sources = cmp.config.sources({
-          { name = 'nvim_lsp' },
-          { name = 'luasnip' },
-        }, {
-          { name = 'buffer' },
-          { name = 'path' },
+        local cmp = require('cmp')
+        local luasnip = require('luasnip')
+        
+        cmp.setup({
+            snippet = {
+                expand = function(args)
+                    luasnip.lsp_expand(args.body)
+                end
+            },
+            mapping = cmp.mapping.preset.insert({
+                ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+                ['<C-f>'] = cmp.mapping.scroll_docs(4),
+                ['<C-Space>'] = cmp.mapping.complete(),
+                ['<C-e>'] = cmp.mapping.abort(),
+                ['<CR>'] = cmp.mapping.confirm({ select = true }),
+                ['<Tab>'] = cmp.mapping(function(fallback)
+                    if cmp.visible() then
+                        cmp.select_next_item()
+                    else
+                        fallback()
+                    end
+                end, { 'i', 's' }),
+                ['<S-Tab>'] = cmp.mapping(function(fallback)
+                    if cmp.visible() then
+                        cmp.select_prev_item()
+                    else
+                        fallback()
+                    end
+                end, { 'i', 's' }),
+            }),
+            sources = cmp.config.sources({
+                { name = 'nvim_lsp' },
+                { name = 'luasnip' },
+                { name = 'buffer' },
+                { name = 'path' }
+            })
         })
-      })
-      -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore)
-      cmp.setup.cmdline('/', {
-        sources = {
-          { name = 'buffer' }
-        }
-      })
-      -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore)
-      cmp.setup.cmdline(':', {
-        sources = cmp.config.sources({
-          { name = 'path' }
-        }, {
-          { name = 'cmdline' }
-        })
-      })
     end
   },
- -- LSP (Language Server Protocol)
-  {
-    'neovim/nvim-lspconfig',
-    config = function()
-      local lspconfig = require('lspconfig')
-      
-      -- Use ts_ls for TypeScript/JavaScript
-      lspconfig.ts_ls.setup {}
+   -- LSP (Language Server Protocol)
+   {
+      'neovim/nvim-lspconfig',
+      dependencies = {
+          'hrsh7th/cmp-nvim-lsp',
+      },
+      config = function()
+          local lspconfig = require('lspconfig')
+          local capabilities = require('cmp_nvim_lsp').default_capabilities()
+          
+          -- Common on_attach function
+          local on_attach = function(client, bufnr)
+              local bufopts = { noremap=true, silent=true, buffer=bufnr }
+              vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+              vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+              vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+              vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+          end
 
-      -- Other LSP servers
-      lspconfig.html.setup {}
-      lspconfig.cssls.setup {}
-      lspconfig.jsonls.setup {}
-      lspconfig.vuels.setup {}
-      lspconfig.pyright.setup {}
-    end
+          -- Setup servers
+          local servers = { "ts_ls", "pyright", "html", "cssls", "lua_ls" }
+          for _, lsp in ipairs(servers) do
+              lspconfig[lsp].setup({
+                  on_attach = on_attach,
+                  capabilities = capabilities,
+              })
+          end
+      end
   }, 
-  -- Telescope
+ -- Telescope
   {
     'nvim-telescope/telescope.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
