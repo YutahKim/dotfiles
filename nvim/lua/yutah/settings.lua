@@ -1,3 +1,5 @@
+vim.opt.number = true       -- Enable line numbers
+vim.opt.relativenumber = true -- Enable relative line numbers
 vim.o.autoindent = true
 vim.o.expandtab = true
 vim.o.tabstop = 2
