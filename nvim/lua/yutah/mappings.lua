@@ -13,7 +13,6 @@ vim.api.nvim_set_keymap('n', '<leader>fc', '<Cmd>Telescope commands<CR>', { nore
 vim.api.nvim_set_keymap('n', '<leader>fk', '<Cmd>Telescope keymaps<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fr', '<Cmd>Telescope oldfiles<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fs', '<Cmd>Telescope grep_string<CR>', { noremap = true, silent = true })
-
 -- NvimTree
 vim.api.nvim_set_keymap('n', '<leader>e', '<Cmd>NvimTreeToggle<CR>', {noremap = true, silent = true})
 
