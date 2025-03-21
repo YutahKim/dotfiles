@@ -4,9 +4,8 @@ Wants=network.target
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant.conf
-Restart=always
-RestartSec=5
+ExecStart=/usr/bin/wpa_supplicant -i wlan0 -c /etc/wpa_supplicant.conf
+Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
