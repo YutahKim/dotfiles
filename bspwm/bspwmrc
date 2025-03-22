@@ -3,19 +3,23 @@ sxhkd -c /home/yutah/config/sxhkdrc
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-xrdb .Xresources
-
 #Autostart
 #xrandr --auto --output DP-2 --mode 2560x1080 --left-of DP-1
 #
-#xrandr --output DP-2 --mode 3440x1440 --rate 100.00 --output DP-1 --mode 2560x1440 --r>
+#xrandr --output DP-2 --mode 3440x1440 --rate 100.00 --output DP-1 --mode 2560x1440 --right-of DP-2
 #xrandr --output DP-2 --mode  1720x1440  --output DP-1 --mode 2560x1440 --right-of DP-2
-#xrandr --output DP-2 --mode 2560x1440 --rotate right --output DP-3 --mode 2560x1080 -->
-xrandr --output DP-2 --mode 2560x1440 -r 59 --rotate right --output DP-3 --mode 2560x10>
+#xrandr --output DP-2 --mode 2560x1440 --rotate right --output DP-3 --mode 2560x1080 --right-of DP-2 &
+#xrandr --output DP-2 --mode 2560x1440 -r 59 --rotate right --output DP-3 --mode 2560x1080 -r 120 --right-of DP-2 &
+#xrandr --output HDMI-1 --mode 2560x1440 -r 59 --rotate left --output DP-2 --mode 2560x1080 -r 120 --left-of HDMI-1
+xrandr --output HDMI-1 --mode 2560x1440 -r 59 --output DP-2 --mode 2560x1080 -r 120 --right-of HDMI-1 --output DP-3 --mode 2560x1440 --rotate inverted --above DP-2
 
-#bspc monitor DP-1 -d I II III IV V VI VII VIII IX X
-bspc monitor DP-3 -d IV V VI
-bspc monitor DP-2 -d I II III
+xrdb .Xresources
+
+bspc monitor DP-0 -d I II III IV V VI VII VIII IX X
+#bspc monitor DP-2 -d I II III
+#bspc monitor DP-3 -d IV V VI
+#bspc monitor HDMI-1 -d VII VIII IX
+#bspc monitor DP-2 -d I II III
 
 bspc config automatic_scheme spiral
 
@@ -27,3 +31,23 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
 bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a Chromium desktop='^2'
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+
+#custom rules
+bspc rule -a feh state=floating focus=off
+
+picom --backend glx -b &
+feh --bg-fill --randomize $HOME/Pictures/bg/* &
+
+$HOME/.config/polybar/launch.sh &
+
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+#for not sleeping screen
+xset -dpms &
+xset s off &
+
+python Documents/Progra/dotfiles/scripts/bgChanger.py
