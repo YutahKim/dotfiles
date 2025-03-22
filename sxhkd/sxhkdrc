@@ -25,10 +25,22 @@ super + alt + l
 	setxkbmap latam
 super + alt + p
 	setxkbmap us
+
+#volume controls for knob kb
+# Increase volume
+XF86AudioRaiseVolume
+    amixer set Master 1%+
+
+# Decrease volume
+XF86AudioLowerVolume
+    amixer set Master 1%-
+# Mute/unmute audio
+XF86AudioMute
+    amixer set Master toggle
+
 #
 # bspwm hotkeys
 #
-
 
 # quit/restart bspwm
 super + alt + {q,r}
