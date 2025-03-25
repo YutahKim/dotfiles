@@ -129,7 +129,26 @@ require('lazy').setup({
               })
           end
       end
-  }, 
+  },
+  {
+    "nvimdev/lspsaga.nvim",
+    dependencies = { "nvim-lspconfig", "nvim-treesitter", "nvim-web-devicons" },
+    config = function()
+      require("lspsaga").setup({
+        ui = { border = "rounded" }, -- Rounded corners for popups
+        hover = { max_width = 0.7 }, -- Adjust hover window size
+        symbol_in_winbar = { enable = true }, -- Show current function in winbar
+      })
+
+      -- Keybindings
+      vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", { desc = "Show function/variable info" })
+      vim.keymap.set("n", "<leader>sh", "<cmd>Lspsaga signature_help<CR>", { desc = "Show function parameters" })
+      vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", { desc = "Code Actions" })
+      vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", { desc = "Rename Symbol" })
+      vim.keymap.set("n", "<leader>gd", "<cmd>Lspsaga goto_definition<CR>", { desc = "Go to Definition" })
+      vim.keymap.set("n", "<leader>gr", "<cmd>Lspsaga finder<CR>", { desc = "Find References" })
+    end,
+  },
  -- Telescope
   {
     'nvim-telescope/telescope.nvim',
