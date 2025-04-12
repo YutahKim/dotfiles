@@ -250,7 +250,7 @@ require('lazy').setup({
         disable = {
           colored_cursor = false,
           borders = false,
-          background = false,
+          background = true,
           term_colors = false,
           eob_lines = false,
         },
@@ -261,6 +261,7 @@ require('lazy').setup({
         lualine_style = "default", -- Options: default, stealth
         async_loading = true,
       })
+      vim.cmd("colorscheme material")
     end,
   },
   -- Auto pairs for brackets and quotes

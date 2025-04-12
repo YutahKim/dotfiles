@@ -16,6 +16,11 @@ vim.api.nvim_set_keymap('n', '<leader>fs', '<Cmd>Telescope grep_string<CR>', { n
 -- NvimTree
 vim.api.nvim_set_keymap('n', '<leader>e', '<Cmd>NvimTreeToggle<CR>', {noremap = true, silent = true})
 
+--Moving with centered code
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
+
+
 -- Session managing
 -- load the session for the current directory
 vim.keymap.set("n", "<leader>qs", function() require("persistence").load() end)
