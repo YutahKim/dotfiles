@@ -20,6 +20,8 @@ vim.api.nvim_set_keymap('n', '<leader>e', '<Cmd>NvimTreeToggle<CR>', {noremap = 
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
 
+--Stay centered
+vim.keymap.set({ 'n', 'v' }, '<leader>st',function () require("stay-centered").toggle() end, { desc = 'Toggle stay-centered.nvim' })
 
 -- Session managing
 -- load the session for the current directory
