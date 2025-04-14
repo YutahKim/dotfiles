@@ -383,6 +383,11 @@ require('lazy').setup({
  {
   'arnamak/stay-centered.nvim'
 },
+--For commentary
+{
+   "tpope/vim-commentary",
+   event = "VeryLazy",
+},
 
   -- Start screen
   {
