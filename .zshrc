@@ -34,6 +34,7 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-sudo/sudo.plugin.zsh
 
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -43,3 +44,11 @@ bindkey  "^[[3~"  delete-char
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
+#zsh-syntax-highlighting configuration
+# Customize syntax highlighting colors
+typeset -gA ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=white'
+ZSH_HIGHLIGHT_STYLES[command]='fg=cyan'
+
+ZSH_HIGHLIGHT_STYLES[alias]='fg=cyan'  # Change alias color (optional)
+ZSH_HIGHLIGHT_STYLES[variable]='fg=yellow'  # Change variable color (optional)

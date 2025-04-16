@@ -3,19 +3,29 @@
 # Directory containing your wallpapers
 WALLPAPER_DIR="$HOME/Pictures/bg"
 
-# Get the name of your monitor
-MONITOR=$(hyprctl monitors | grep 'Monitor' | awk '{print $2}')
+# Get all connected monitors
+MONITORS=$(hyprctl monitors | grep 'Monitor' | awk '{print $2}')
 
-# Infinite loop to change wallpaper every minute
 while true; do
-    # Select a random image from the directory
-    WALLPAPER=$(find "$WALLPAPER_DIR" -type f \( -iname '*.jpg' -o -iname '*.png' -o -iname '*.jpeg' \) | shuf -n 1)
+    # Declare an array to store selected wallpapers
+    declare -a USED_WALLPAPERS=()
 
-    # Preload and set the wallpaper using Hyprpaper
-    hyprctl hyprpaper preload "$WALLPAPER"
-    hyprctl hyprpaper wallpaper "$MONITOR,$WALLPAPER"
+    for MONITOR in $MONITORS; do
+        # Pick a random wallpaper that hasn’t been used yet
+        while true; do
+            WALLPAPER=$(find "$WALLPAPER_DIR" -type f \( -iname '*.jpg' -o -iname '*.png' -o -iname '*.jpeg' \) | shuf -n 1)
+            [[ ! " ${USED_WALLPAPERS[*]} " =~ " ${WALLPAPER} " ]] && break
+        done
 
-    # Wait for 60 seconds before changing the wallpaper again
+        # Add it to the used list
+        USED_WALLPAPERS+=("$WALLPAPER")
+
+        # Preload and assign the wallpaper to this monitor
+        hyprctl hyprpaper preload "$WALLPAPER"
+        hyprctl hyprpaper wallpaper "$MONITOR,$WALLPAPER"
+    done
+
+    # Wait before refreshing again
     sleep 60
 done
 
