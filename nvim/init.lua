@@ -396,6 +396,10 @@ require('lazy').setup({
   event = "VeryLazy",
   opts = {
     -- add any options here
+      presets = {
+      bottom_search = true,  -- example preset
+      command_palette = true,
+    },
   },
   dependencies = {
     -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
@@ -405,6 +409,14 @@ require('lazy').setup({
     --   If not available, we use `mini` as the fallback
     "rcarriga/nvim-notify",
     }
+},
+{
+  "rcarriga/nvim-notify",
+  config = function()
+    require("notify").setup({
+      background_colour = "#1a1b26", -- Change this to match your theme
+    })
+  end,
 },
 
   -- Start screen
