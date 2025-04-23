@@ -281,13 +281,13 @@ require('lazy').setup({
   },
   
   -- Bufferline for tab-like buffers
-  {
-    'akinsho/bufferline.nvim',
-    requires = 'nvim-tree/nvim-web-devicons',
-    config = function()
-      require('bufferline').setup {}
-    end
-  },
+  -- {
+  --   'akinsho/bufferline.nvim',
+  --   requires = 'nvim-tree/nvim-web-devicons',
+  --   config = function()
+  --     require('bufferline').setup {}
+  --   end
+  -- },
   
   -- Indentation guides
   {
