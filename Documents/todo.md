@@ -58,3 +58,5 @@
 
 ## 3DMotionPortfolio
     Update latest works and in progress module
+        Pending links and thumbnails
+    Update works and any other list grid to load as lazyLoading method
