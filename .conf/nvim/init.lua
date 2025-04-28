@@ -419,6 +419,38 @@ require('lazy').setup({
   end,
 },
 
+--Prettier plugin
+{
+  "nvimtools/none-ls.nvim",
+  dependencies = { "nvim-lua/plenary.nvim" },
+  config = function()
+    local null_ls = require("null-ls")
+    null_ls.setup({
+      sources = {
+        null_ls.builtins.formatting.prettier,
+
+        -- Python
+        null_ls.builtins.formatting.black,
+        null_ls.builtins.formatting.isort,
+
+        -- C, C++
+        null_ls.builtins.formatting.clang_format,
+      },
+    })
+  end,
+},
+
+--Markdown render
+{
+  'MeanderingProgrammer/render-markdown.nvim',
+  dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
+  -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+  -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+  ---@module 'render-markdown'
+  ---@type render.md.UserConfig
+  opts = {},
+},
+
   -- Start screen
   {
   'goolord/alpha-nvim',
