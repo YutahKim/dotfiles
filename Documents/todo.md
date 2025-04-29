@@ -12,6 +12,7 @@
 ## tmux
 ---
     tmux configuration upgrades (typecraft videos).
+    fix plugins bugs
 
 
 ## Nvim
