@@ -21,6 +21,7 @@
     [] Multiple cursors
     [] which-key.nvim 
     [] flash.nvim
+    [] update the tree explorer to mark the current file (may be changin tree Manager)
 
 # Projects
 ---
