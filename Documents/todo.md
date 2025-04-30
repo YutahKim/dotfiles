@@ -13,6 +13,7 @@
 ---
     tmux configuration upgrades (typecraft videos).
     fix plugins bugs
+    pomodoro plugin break timer fix
 
 
 ## Nvim
