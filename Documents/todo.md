@@ -13,9 +13,6 @@
 ---
     tmux configuration upgrades (typecraft videos).
     fix plugins bugs
-### pomodoro 
-        plugin break timer fix
-        customize real time, icon etc https://github.com/olimorris/tmux-pomodoro-plus
 
 ## Nvim
 ---
