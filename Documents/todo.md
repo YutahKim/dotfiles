@@ -57,8 +57,8 @@
 ## AI-Powered Code Optimization Assistant
 
 ## Mr. Robot Reviewer (FastAPI backend using StarChat)
-    AI-powered code reviewer using HuggingFace models.
-    Smooth integration with your current linter setup.
+    Implement basic minimal AI integration for code review
+    Integrate test architecture for endpoints on FastAPI backend
 
 ## 3DMotionPortfolio
     Update latest works and in progress module
