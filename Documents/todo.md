@@ -16,11 +16,14 @@
 
 ## Nvim
 ---
+### Fixes
+- [ ] Fix flash vim with more visible jump char or search for alternatives (last part of this github)
+    https://github.com/folke/flash.nvim
+
 ### Plugins
-    [] Multiple cursors
-    [] which-key.nvim 
-    [] flash.nvim
-    [] update the tree explorer to mark the current file (may be changin tree Manager)
+- [ ] Multiple cursors
+- [ ] which-key.nvim 
+- [ ] update the tree explorer to mark the current file (may be changin tree Manager)
 
 # Projects
 ---
