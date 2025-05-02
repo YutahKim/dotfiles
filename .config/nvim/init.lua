@@ -162,10 +162,35 @@ require('lazy').setup({
               ['<C-d>'] = false,
             },
           },
-        }
+        },
+         extensions = {
+    project = {
+      base_dirs = {
+        { "~/Documents/", max_depth = 2 },
+        { "~/.config", max_depth = 2 },
+      },
+      hidden_files = true,
+    },
+  },
       }
     end
   },
+
+
+{
+  "ahmedkhalf/project.nvim",
+  config = function()
+    require("project_nvim").setup()
+  end,
+},
+
+{
+  "nvim-telescope/telescope-project.nvim",
+  dependencies = { "nvim-telescope/telescope.nvim" },
+  config = function()
+    require("telescope").load_extension("project")
+  end,
+},
   
   -- Treesitter for better syntax highlighting
   {
@@ -311,23 +336,23 @@ require('lazy').setup({
   },
 
    -- Persistence plugin
-  {
-    'folke/persistence.nvim',
-    config = function()
-      require('persistence').setup({
-        dir = vim.fn.stdpath("data") .. "/sessions/", -- Directory where session files are saved
-        options = { "buffers", "curdir", "tabpages", "winsize" }, -- Options to save
-      })
-      -- Auto-load the session if one exists for the current directory
-      vim.api.nvim_create_autocmd("VimEnter", {
-        callback = function()
-          if vim.fn.argc() == 0 then
-            require('persistence').load({ last = true })
-          end
-        end,
-      })
-    end
-  },
+  -- {
+  --   'folke/persistence.nvim',
+  --   config = function()
+  --     require('persistence').setup({
+  --       dir = vim.fn.stdpath("data") .. "/sessions/", -- Directory where session files are saved
+  --       options = { "buffers", "curdir", "tabpages", "winsize" }, -- Options to save
+  --     })
+  --     -- Auto-load the session if one exists for the current directory
+  --     vim.api.nvim_create_autocmd("VimEnter", {
+  --       callback = function()
+  --         if vim.fn.argc() == 0 then
+  --           require('persistence').load({ last = true })
+  --         end
+  --       end,
+  --     })
+  --   end
+  -- },
 
   --Which-key for binding preview
   {
@@ -419,6 +444,29 @@ require('lazy').setup({
   end,
 },
 
+{
+  'nvimdev/dashboard-nvim',
+  event = 'VimEnter',
+  config = function()
+    require('dashboard').setup {
+	    config = {
+  shortcut = {
+    -- action can be a function type
+    { desc = string, group = 'highlight group', key = 'shortcut key', action = 'action when you press key' },
+  },
+  packages = { enable = true }, -- show how many plugins neovim loaded
+  -- limit how many projects list, action when you press key or enter it will run this action.
+  -- action can be a function type, e.g.
+  -- action = func(path) vim.cmd('Telescope find_files cwd=' .. path) end
+  project = { enable = true, limit = 8, icon = 'your icon', label = '', action = 'Telescope find_files cwd=' },
+  mru = { enable = true, limit = 10, icon = 'your icon', label = '', cwd_only = false },
+  footer = {}, -- footer
+}
+    }
+  end,
+  dependencies = { {'nvim-tree/nvim-web-devicons'}}
+},
+
 --Prettier plugin
 {
   "nvimtools/none-ls.nvim",
@@ -460,5 +508,58 @@ require('lazy').setup({
     startify.nvim_web_devicons = false  -- Ensure icons are enabled
     require('alpha').setup(startify.config)
   end
-  }
+  },
+
+  -- Dashboard (Alpha)
+{
+  "goolord/alpha-nvim",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  config = function()
+    local alpha = require("alpha")
+    local dashboard = require("alpha.themes.dashboard")
+    local project = require("telescope").extensions.project
+
+    dashboard.section.header.val = {
+      "    ███╗   ██╗██╗   ██╗███╗   ███╗",
+      "    ████╗  ██║██║   ██║████╗ ████║",
+      "    ██╔██╗ ██║██║   ██║██╔████╔██║",
+      "    ██║╚██╗██║██║   ██║██║╚██╔╝██║",
+      "    ██║ ╚████║╚██████╔╝██║ ╚═╝ ██║",
+      "    ╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝",
+    }
+
+    dashboard.section.buttons.val = {
+      dashboard.button("SPC f r", "  Recently opened files", "<cmd>Telescope oldfiles<cr>"),
+      dashboard.button("SPC p", "  Projects", "<cmd>Telescope projects<cr>"),
+      dashboard.button("SPC f d", "  Open Dotfiles", "<cmd>edit ~/.config<cr>"),
+      dashboard.button("SPC s l", "  Restore Last Session", "<cmd>lua require('persistence').load({ last = true })<cr>"),
+      dashboard.button("q", "  Quit", "<cmd>qa<cr>"),
+    }
+
+    dashboard.section.footer.val = "Neovim is my code editor"
+    dashboard.opts.opts.noautocmd = true
+    alpha.setup(dashboard.opts)
+  end
+},
+
+-- Session Persistence
+{
+  "folke/persistence.nvim",
+  event = "BufReadPre",
+  config = function()
+    require("persistence").setup({
+      dir = vim.fn.stdpath("data") .. "/sessions/",
+      options = { "buffers", "curdir", "tabpages", "winsize" },
+    })
+  end,
+},
+
+-- Project switcher
+{
+  "ahmedkhalf/project.nvim",
+  config = function()
+    require("project_nvim").setup()
+    require("telescope").load_extension("projects")
+  end,
+},
 })
