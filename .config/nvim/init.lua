@@ -511,55 +511,55 @@ require('lazy').setup({
   },
 
   -- Dashboard (Alpha)
-{
-  "goolord/alpha-nvim",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
-  config = function()
-    local alpha = require("alpha")
-    local dashboard = require("alpha.themes.dashboard")
-    local project = require("telescope").extensions.project
+-- {
+--   "goolord/alpha-nvim",
+--   dependencies = { "nvim-tree/nvim-web-devicons" },
+--   config = function()
+--     local alpha = require("alpha")
+--     local dashboard = require("alpha.themes.dashboard")
+--     local project = require("telescope").extensions.project
 
-    dashboard.section.header.val = {
-      "    ███╗   ██╗██╗   ██╗███╗   ███╗",
-      "    ████╗  ██║██║   ██║████╗ ████║",
-      "    ██╔██╗ ██║██║   ██║██╔████╔██║",
-      "    ██║╚██╗██║██║   ██║██║╚██╔╝██║",
-      "    ██║ ╚████║╚██████╔╝██║ ╚═╝ ██║",
-      "    ╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝",
-    }
+--     dashboard.section.header.val = {
+--       "    ███╗   ██╗██╗   ██╗███╗   ███╗",
+--       "    ████╗  ██║██║   ██║████╗ ████║",
+--       "    ██╔██╗ ██║██║   ██║██╔████╔██║",
+--       "    ██║╚██╗██║██║   ██║██║╚██╔╝██║",
+--       "    ██║ ╚████║╚██████╔╝██║ ╚═╝ ██║",
+--       "    ╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝",
+--     }
 
-    dashboard.section.buttons.val = {
-      dashboard.button("SPC f r", "  Recently opened files", "<cmd>Telescope oldfiles<cr>"),
-      dashboard.button("SPC p", "  Projects", "<cmd>Telescope projects<cr>"),
-      dashboard.button("SPC f d", "  Open Dotfiles", "<cmd>edit ~/.config<cr>"),
-      dashboard.button("SPC s l", "  Restore Last Session", "<cmd>lua require('persistence').load({ last = true })<cr>"),
-      dashboard.button("q", "  Quit", "<cmd>qa<cr>"),
-    }
+--     dashboard.section.buttons.val = {
+--       dashboard.button("SPC f r", "  Recently opened files", "<cmd>Telescope oldfiles<cr>"),
+--       dashboard.button("SPC p", "  Projects", "<cmd>Telescope projects<cr>"),
+--       dashboard.button("SPC f d", "  Open Dotfiles", "<cmd>edit ~/.config<cr>"),
+--       dashboard.button("SPC s l", "  Restore Last Session", "<cmd>lua require('persistence').load({ last = true })<cr>"),
+--       dashboard.button("q", "  Quit", "<cmd>qa<cr>"),
+--     }
 
-    dashboard.section.footer.val = "Neovim is my code editor"
-    dashboard.opts.opts.noautocmd = true
-    alpha.setup(dashboard.opts)
-  end
-},
+--     dashboard.section.footer.val = "Neovim is my code editor"
+--     dashboard.opts.opts.noautocmd = true
+--     alpha.setup(dashboard.opts)
+--   end
+-- },
 
--- Session Persistence
-{
-  "folke/persistence.nvim",
-  event = "BufReadPre",
-  config = function()
-    require("persistence").setup({
-      dir = vim.fn.stdpath("data") .. "/sessions/",
-      options = { "buffers", "curdir", "tabpages", "winsize" },
-    })
-  end,
-},
+-- -- Session Persistence
+-- {
+--   "folke/persistence.nvim",
+--   event = "BufReadPre",
+--   config = function()
+--     require("persistence").setup({
+--       dir = vim.fn.stdpath("data") .. "/sessions/",
+--       options = { "buffers", "curdir", "tabpages", "winsize" },
+--     })
+--   end,
+-- },
 
--- Project switcher
-{
-  "ahmedkhalf/project.nvim",
-  config = function()
-    require("project_nvim").setup()
-    require("telescope").load_extension("projects")
-  end,
-},
+-- -- Project switcher
+-- {
+--   "ahmedkhalf/project.nvim",
+--   config = function()
+--     require("project_nvim").setup()
+--     require("telescope").load_extension("projects")
+--   end,
+-- },
 })
