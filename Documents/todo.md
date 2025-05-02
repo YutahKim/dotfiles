@@ -24,6 +24,7 @@
 - [ ] Multiple cursors
 - [ ] which-key.nvim 
 - [ ] update the tree explorer to mark the current file (may be changin tree Manager)
+- [ ] change the principal page of nvim and remove save workspace plugins
 
 # Projects
 ---
