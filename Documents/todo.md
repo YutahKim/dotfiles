@@ -10,6 +10,7 @@
     PipeWire as the primary audio system.
     Minimal Capuccino-style theming.
     nvim motions for web browser.
+    add script for easy zsh plugins instalation.
 
 ## tmux
 
