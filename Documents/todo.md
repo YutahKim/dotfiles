@@ -70,8 +70,9 @@
 
 ## Mr. Robot Reviewer (FastAPI backend using StarChat)
 
-    Implement basic minimal AI integration for code review
-    Integrate test architecture for endpoints on FastAPI backend
+- [-] Implement basic minimal AI integration for code review
+  Integrate analyzer with files  
+   Integrate test architecture for endpoints on FastAPI backend
 
 ## 3DMotionPortfolio
 
