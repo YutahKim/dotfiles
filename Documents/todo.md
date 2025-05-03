@@ -10,7 +10,6 @@
     PipeWire as the primary audio system.
     Minimal Capuccino-style theming.
     nvim motions for web browser.
-    add script for easy zsh plugins instalation.
 
 ## tmux
 
@@ -61,14 +60,11 @@
 
 ## Weekly Call Scheduler App (Vite + React + FastAPI)
 
-    Voting closes every Tuesday at 00:00.
-    Persistent vote storage in JSON files.
-    Collect availability votes
-    Schedule call in Google Calendar.
-    Extend to future weeks, allow edits and deletions.
-    Polygon "Loading Cat" Animation
-        Adjust it to spin and change shape as it rotates.
-        Make it match the cat image reference you shared.
+- [-] Fixing permanency data
+  Polygon "Loading Cat" Animation
+  Adjust it to spin and change shape as it rotates.
+  Make it match the cat image reference you shared.
+  Modifiable schedules
 
 ## AI-Powered Code Optimization Assistant
 
