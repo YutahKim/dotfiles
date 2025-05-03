@@ -176,13 +176,12 @@ require('lazy').setup({
     end
   },
 
-
-{
-  "ahmedkhalf/project.nvim",
-  config = function()
-    require("project_nvim").setup()
-  end,
-},
+-- {
+--   "ahmedkhalf/project.nvim",
+--   config = function()
+--     require("project_nvim").setup()
+--   end,
+-- },
 
 {
   "nvim-telescope/telescope-project.nvim",
