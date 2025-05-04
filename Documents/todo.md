@@ -40,7 +40,8 @@
 
 ## Automated Plant Manager and Notifier (Raspberry Pi 3)
 
-    Current phase: Add water level sensor to prevent pump activation if no water.
+- [-] setup Raspberry
+  Current phase: Add water level sensor to prevent pump activation if no water.
 
 ## Laundry Delivery Clothes Registry App (Expo React Native + API)
 
@@ -70,10 +71,7 @@
 
 ## Mr. Robot Reviewer (FastAPI backend using StarChat)
 
-- [-] Implement basic minimal AI integration for code review
-  Integrate analyzer with files  
-  Integrate test architecture for endpoints on FastAPI backend
-  Create a file to propose features
+- [-] Integrate test architecture for endpoints on FastAPI backend
 
 ## 3DMotionPortfolio
 
