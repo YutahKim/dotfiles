@@ -29,6 +29,7 @@
 
 ### Plugins
 
+- [ ] Add pending stuff of this video https://www.youtube.com/watch?v=FGVY7gbaoQI&ab_channel=SethPhaeno
 - [ ] Multiple cursors
 - [ ] which-key.nvim
 - [ ] update the tree explorer to mark the current file (may be changin tree Manager)

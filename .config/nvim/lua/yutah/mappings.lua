@@ -18,6 +18,17 @@ vim.api.nvim_set_keymap('n', '<leader>fs', '<Cmd>Telescope grep_string<CR>', { n
 -- NvimTree
 vim.api.nvim_set_keymap('n', '<leader>e', '<Cmd>NvimTreeToggle<CR>', {noremap = true, silent = true})
 
+--Move selected lines up and down
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", {desc = "Moves lines down in visual selection"})
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", {desc = "Moves lines up in visual selection"})
+
+--indent selected lines
+vim.keymap.set("v", "<", "<gv", opts)
+vim.keymap.set("v", ">", ">gv", opts)
+
+--clean highlighs
+vim.keymap.set("n", "<C-c>", ":nohl<CR>", { desc = "Clear dearch hl", silent = true})
+
 --Moving with centered code
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
