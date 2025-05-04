@@ -10,7 +10,7 @@
     PipeWire as the primary audio system.
     Minimal Capuccino-style theming.
     nvim motions for web browser.
-- [-] add jumping cursor
+- [-] add jumping cursor https://www.reddit.com/r/KittyTerminal/comments/1g7vkwt/neovide_like_cursor_animation_in_kitty_terminal/
 ## tmux
 
 ---
