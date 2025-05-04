@@ -72,7 +72,8 @@
 
 - [-] Implement basic minimal AI integration for code review
   Integrate analyzer with files  
-   Integrate test architecture for endpoints on FastAPI backend
+  Integrate test architecture for endpoints on FastAPI backend
+  Create a file to propose features
 
 ## 3DMotionPortfolio
 
