@@ -5,18 +5,22 @@
 ---
 
     Polybar auto-display detection script.
-    Skippy-XD setup (animated window overview).
-    Separate Hyprland environment.
     PipeWire as the primary audio system.
-    Minimal Capuccino-style theming.
     nvim motions for web browser.
-- [-] add jumping cursor https://www.reddit.com/r/KittyTerminal/comments/1g7vkwt/neovide_like_cursor_animation_in_kitty_terminal/
+
+## zsh
+
+---
+
+    Create alias for git recurrent commands
+
 ## tmux
 
 ---
 
     tmux configuration upgrades (typecraft videos).
     fix plugins bugs
+    install nvim compatible pane plugin
 
 ## Nvim
 
