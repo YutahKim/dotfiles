@@ -86,3 +86,10 @@
         Pending links and thumbnails
         Pending fix 3d model implementation
     Update works and any other list grid to load as lazyLoading method
+
+## DynamicScheduler
+    
+    Propose and create project planning and desing 
+    General idea:
+        An application for scheduling tasks with pomodoro methodoly integration
+        Timer for each task, drag and move tasks, break generation, may be AI integration
