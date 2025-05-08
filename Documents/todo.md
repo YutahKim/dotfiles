@@ -8,6 +8,7 @@
     PipeWire as the primary audio system.
     nvim motions for web browser.
     add nvim navigation for man pages.
+    stow for dotfiles management.
 
 ## zsh
 
