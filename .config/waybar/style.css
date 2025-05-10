@@ -1,9 +1,8 @@
 @import "mocha.css";
 
 * {
-  font-family: FantasqueSansMono Nerd Font;
-  font-size: 17px;
-  min-height: 0;
+  font-family: "Hack Nerd Font", sans-serif;
+  font-size: 13px;
 }
 
 #waybar {
@@ -44,8 +43,7 @@
 #custom-lock,
 #window,
 #custom-power,
-#cpu
-{
+#cpu {
   background-color: @surface0;
   padding: 0.5rem 1rem;
   margin: 5px 0;
@@ -74,8 +72,9 @@
   color: @yellow;
 }
 
-#backlight, #battery {
-    border-radius: 0;
+#backlight,
+#battery {
+  border-radius: 1rem;
 }
 
 #pulseaudio {
@@ -89,6 +88,7 @@
   border-radius: 1rem;
   margin-left: 1rem;
 }
+
 #window {
   color: @mauve;
   border-radius: 1rem;
@@ -100,14 +100,14 @@
 }
 
 #custom-lock {
-    border-radius: 0px;
-    color: @lavender;
+  border-radius: 0px;
+  color: @lavender;
 }
 
 #custom-power {
-    margin-right: 1rem;
-    border-radius: 0px 1rem 1rem 0px;
-    color: @red;
+  margin-right: 1rem;
+  border-radius: 0px 1rem 1rem 0px;
+  color: @red;
 }
 
 #tray {
