@@ -97,3 +97,8 @@
         Timer for each task, drag and move tasks, break generation, may be AI integration
 
 ## Cuatomed keyboard for android
+
+## fineance
+
+- [-] build IOS version
+- [-] change logo
