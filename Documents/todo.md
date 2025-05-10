@@ -9,6 +9,7 @@
     nvim motions for web browser.
     add nvim navigation for man pages.
     stow for dotfiles management.
+    Create script for installing resources like zsh, tmux, and fonts
 
 ## zsh
 
@@ -88,8 +89,8 @@
     Update works and any other list grid to load as lazyLoading method
 
 ## DynamicScheduler
-    
-    Propose and create project planning and desing 
+
+    Propose and create project planning and desing
     General idea:
         An application for scheduling tasks with pomodoro methodoly integration
         Timer for each task, drag and move tasks, break generation, may be AI integration
