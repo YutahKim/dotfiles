@@ -7,6 +7,13 @@ WALLPAPER_DIR="$HOME/Pictures/bg"
 MONITORS=$(hyprctl monitors | grep 'Monitor' | awk '{print $2}')
 
 while true; do
+    # Ensure hyprpaper is running
+    if ! pgrep -x "hyprpaper" > /dev/null; then
+        echo "hyprpaper is not running. Starting it..."
+        hyprpaper &
+        sleep 1  # Give it a second to start up
+    fi
+
     # Declare an array to store selected wallpapers
     declare -a USED_WALLPAPERS=()
 
