@@ -95,3 +95,5 @@
     General idea:
         An application for scheduling tasks with pomodoro methodoly integration
         Timer for each task, drag and move tasks, break generation, may be AI integration
+
+## Cuatomed keyboard for android
