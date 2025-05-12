@@ -70,8 +70,7 @@
 
 ## Weekly Call Scheduler App (Vite + React + FastAPI)
 
-- [-] Fixing permanency data
-  Polygon "Loading Cat" Animation
+- [-] Polygon "Loading Cat" Animation
   Adjust it to spin and change shape as it rotates.
   Make it match the cat image reference you shared.
   Modifiable schedules
@@ -100,5 +99,4 @@
 
 ## fineance
 
-- [-] build IOS version
 - [-] change logo
