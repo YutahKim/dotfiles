@@ -83,6 +83,7 @@
 
 ## 3DMotionPortfolio
 
+    - [-] Add leetCode profile to social coding section
     Update latest works and in progress module
         Pending links and thumbnails
         Pending fix 3d model implementation
