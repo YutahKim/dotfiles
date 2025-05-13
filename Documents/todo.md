@@ -20,6 +20,7 @@
     ```
     for waybar icons
     install btop
+    install swaync notification
 
 ## zsh
 
