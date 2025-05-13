@@ -8,7 +8,7 @@
     PipeWire as the primary audio system.
     nvim motions for web browser.
     add nvim navigation for man pages.
-    stow for dotfiles management.
+    stow for dotfiles management. Look at typecraft tutorial
     Create script for installing resources like zsh, tmux, and fonts
     install Home mod
     install dysk (df alternative)
