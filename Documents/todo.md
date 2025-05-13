@@ -19,6 +19,7 @@
     sudo pacman -S ttf-font-awesome
     ```
     for waybar icons
+    install btop
 
 ## zsh
 
