@@ -12,6 +12,7 @@
     Create script for installing resources like zsh, tmux, and fonts
     install Home mod
     install dysk (df alternative)
+    install rofi catpuchin
 
 ## zsh
 
