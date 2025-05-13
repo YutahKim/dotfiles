@@ -13,6 +13,12 @@
     install Home mod
     install dysk (df alternative)
     install rofi catpuchin
+    install
+    ```bash
+
+    sudo pacman -S ttf-font-awesome
+    ```
+    for waybar icons
 
 ## zsh
 
