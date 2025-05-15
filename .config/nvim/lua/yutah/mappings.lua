@@ -5,8 +5,8 @@ vim.g.mapleader = ' '
 vim.api.nvim_set_keymap('n','<leader>ww', ':w<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n','<leader>wq', ':wq<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n','<leader>wa', ':wa<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n','<leader>qq', ':wqa<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n','<leader>qa', ':q!<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n','<leader>qa', ':wqa<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n','<leader>qq', ':q!<CR>', { noremap = true, silent = true })
 
 -- Key mappings for Telescope
 vim.api.nvim_set_keymap('n', '<leader>ff', '<Cmd>Telescope find_files<CR>', { noremap = true, silent = true })
