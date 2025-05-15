@@ -6,6 +6,8 @@ vim.api.nvim_set_keymap('n','<leader>ww', ':w<CR>', { noremap = true, silent = t
 vim.api.nvim_set_keymap('n','<leader>wq', ':wq<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n','<leader>wa', ':wa<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n','<leader>qq', ':wqa<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n','<leader>qa', ':q!<CR>', { noremap = true, silent = true })
+
 -- Key mappings for Telescope
 vim.api.nvim_set_keymap('n', '<leader>ff', '<Cmd>Telescope find_files<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fg', '<Cmd>Telescope live_grep<CR>', { noremap = true, silent = true })
