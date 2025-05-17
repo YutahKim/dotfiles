@@ -8,6 +8,9 @@ vim.api.nvim_set_keymap('n','<leader>wa', ':wa<CR>', { noremap = true, silent = 
 vim.api.nvim_set_keymap('n','<leader>qa', ':wqa<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n','<leader>qq', ':q!<CR>', { noremap = true, silent = true })
 
+--Yank without clipboard override
+vim.keymap.set('x', "<leader>p", "\"_dP")
+
 -- Key mappings for Telescope
 vim.api.nvim_set_keymap('n', '<leader>ff', '<Cmd>Telescope find_files<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fg', '<Cmd>Telescope live_grep<CR>', { noremap = true, silent = true })
