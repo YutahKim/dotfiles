@@ -27,6 +27,7 @@
 ---
 
     Create alias for git recurrent commands
+    make a difference for gitstatus fail exception juts in termux env
 
 ## tmux
 
