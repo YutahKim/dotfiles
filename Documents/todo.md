@@ -48,6 +48,7 @@
 
 ### Plugins
 
+- [ ] Intrall undo tree
 - [ ] Add pending stuff of this video https://www.youtube.com/watch?v=FGVY7gbaoQI&ab_channel=SethPhaeno
 - [ ] Multiple cursors
 - [ ] which-key.nvim
