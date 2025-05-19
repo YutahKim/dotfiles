@@ -182,7 +182,9 @@ require('lazy').setup({
 --     require("project_nvim").setup()
 --   end,
 -- },
-
+{
+  "mbbill/undotree"
+},
 {
   "nvim-telescope/telescope-project.nvim",
   dependencies = { "nvim-telescope/telescope.nvim" },
