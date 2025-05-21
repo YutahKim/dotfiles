@@ -82,6 +82,8 @@
 
 ## Weekly Call Scheduler App (Vite + React + FastAPI)
 
+- [-] remove tg message and replace it with a psswored rar
+
 - [-] Polygon "Loading Cat" Animation
   Adjust it to spin and change shape as it rotates.
   Make it match the cat image reference you shared.
