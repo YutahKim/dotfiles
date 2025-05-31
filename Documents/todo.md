@@ -46,6 +46,7 @@
 
 - [ ] Fix flash vim with more visible jump char or search for alternatives (last part of this github)
       https://github.com/folke/flash.nvim
+- [ ] Shortcut to hide notifications
 
 ### Plugins
 
