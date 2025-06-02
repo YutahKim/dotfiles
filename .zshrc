@@ -27,6 +27,25 @@ alias resodual="xrandr --output DP-2 --mode  1720x1440 --output DP-1 --mode 2560
 alias ll="lsd -l"
 alias ls="lsd -a"
 alias cat="bat"
+alias vmconf="nvim /home/yutah/.config/nvim/"
+
+#git alias
+alias gf="git fetch"
+alias gp="git pull"
+alias gfp="git fetch && git pull"
+alias gs="git status"
+alias ga="git add"
+alias gc="git commit -m"
+alias gp="git push"
+alias gch="git checkout"
+
+#functions
+#git add commit and push all
+gall() {
+    git add .
+    git commit -m "$([ "$1" != "" ] && echo "$1" || echo "update")"
+    git push
+}
 
 #plugins
 source ~/powerlevel10k/powerlevel10k.zsh-theme
@@ -52,3 +71,5 @@ ZSH_HIGHLIGHT_STYLES[command]='fg=cyan'
 
 ZSH_HIGHLIGHT_STYLES[alias]='fg=cyan'  # Change alias color (optional)
 ZSH_HIGHLIGHT_STYLES[variable]='fg=yellow'  # Change variable color (optional)
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+export PATH="$HOME/.local/bin:$PATH"
