@@ -23,6 +23,9 @@ vim.api.nvim_set_keymap('n', '<leader>fs', '<Cmd>Telescope grep_string<CR>', { n
 -- NvimTree
 vim.api.nvim_set_keymap('n', '<leader>e', '<Cmd>NvimTreeToggle<CR>', {noremap = true, silent = true})
 
+-- VimWiki
+vim.keymap.set("n", "<C-l>", "<Cmd>VimwikiToggleListItem<CR>", { noremap = true, silent = true })
+
 -- UndoTree
 vim.keymap.set('n', '<leader>u', '<Cmd>UndotreeToggle<CR>', {noremap=true, silent=true})
 

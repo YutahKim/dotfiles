@@ -199,9 +199,11 @@ require('lazy').setup({
     run = ':TSUpdate',
     config = function()
       require('nvim-treesitter.configs').setup {
-        ensure_installed = { "javascript", "typescript", "html", "css", "json", "lua", "python", "vue" },
+        ensure_installed = { "javascript", "typescript", "html", "css", "json", "lua", "python", "vue", "markdown", "markdown_inline", "vim", "vimdoc" },
+        auto_install = true,
         highlight = {
           enable = true,
+          additional_vim_regex_highlighting = {'markdown'},
         },
       }
     end
@@ -489,15 +491,27 @@ require('lazy').setup({
   end,
 },
 
---Markdown render
-{
-  'MeanderingProgrammer/render-markdown.nvim',
-  dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
-  -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
-  -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
-  ---@module 'render-markdown'
-  ---@type render.md.UserConfig
-  opts = {},
+----Markdown render
+--{
+--  'MeanderingProgrammer/render-markdown.nvim',
+--  dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
+--  -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+--  -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+--  ---@module 'render-markdown'
+--  ---@type render.md.UserConfig
+--  opts = {},
+--},
+
+{"vimwiki/vimwiki",
+  init = function()
+      vim.g.vimwiki_list = {
+          {
+          path = '~/docs/vimwiki',
+          syntax = 'markdown',
+          ext = '.md',
+          },
+      }
+  end,
 },
 
   -- Start screen
