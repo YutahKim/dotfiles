@@ -9,7 +9,6 @@
 
 == ✨ Dashboard ==
 
-
 %% * [[journal/|📓 Journal]]
 * [📓Todo](todo)
 * [[projects/todo|💻 Projects]]

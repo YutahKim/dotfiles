@@ -35,13 +35,8 @@
   ## AI-Powered Code Optimization Assistant
 
   ## Mr. Robot Reviewer (FastAPI backend using StarChat)
-    - [ ] Request for the frontend
-      - [ ] Change env variable for the backend endpoint to exclude routes
-      - [ ] Title of the submit-file page from "Mr Reviewer" to "Mr. Robot Reviewer"
-      - [ ] Add lintern process
-      - [ ] Folder structure
-      - [ ] CORS
-
+    - [ ] Create optimezer analyzer
+  
   ## 3DMotionPortfolio
 
       - [-] Add leetCode profile to social coding section
