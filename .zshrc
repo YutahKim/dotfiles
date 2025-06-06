@@ -31,12 +31,14 @@ alias vmconf="nvim /home/yutah/.config/nvim/"
 
 #git alias
 alias gf="git fetch"
-alias gp="git pull"
+alias gpl="git pull"
 alias gfp="git fetch && git pull"
 alias gs="git status"
+alias gl="git log"
+alias gd="git diff"
 alias ga="git add"
 alias gc="git commit -m"
-alias gp="git push"
+alias gps="git push"
 alias gch="git checkout"
 
 #functions
