@@ -42,6 +42,8 @@
       - [ ] Register in the future db id process for each analyzer
       - [ ] Use a queue subsistem to manage code uploads requests
       - [ ] Integrate with github
+    - [ ] Set optimezer metrics for optimezer tolerance
+    - [ ] Add to planning Add documentation comments module for AI
   
   ## 3DMotionPortfolio
 
