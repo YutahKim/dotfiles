@@ -35,15 +35,6 @@
   ## AI-Powered Code Optimization Assistant
 
   ## Mr. Robot Reviewer (FastAPI backend using StarChat)
-    - [ ] Create optimezer analyzer
-    - [ ] Add to planning the new design
-      - [ ] Create an endpoint to start the analyzer process
-      - [ ] Create a websocket to update the status of the analyzers
-      - [ ] Register in the future db id process for each analyzer
-      - [ ] Use a queue subsistem to manage code uploads requests
-      - [ ] Integrate with github
-    - [ ] Set optimezer metrics for optimezer tolerance
-    - [ ] Add to planning Add documentation comments module for AI
   
   ## 3DMotionPortfolio
 
@@ -64,4 +55,4 @@
 
   ## fineance
 
-  - [-] change logo
+  - [X] change logo
