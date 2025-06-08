@@ -26,6 +26,9 @@ vim.api.nvim_set_keymap('n', '<leader>e', '<Cmd>NvimTreeToggle<CR>', {noremap = 
 -- VimWiki
 vim.keymap.set("n", "<C-l>", "<Cmd>VimwikiToggleListItem<CR>", { noremap = true, silent = true })
 
+-- Notify (noice)
+vim.keymap.set("n", "<leader>nd", "<Cmd>Noice dismiss<CR>", { noremap = true, silent = true })
+
 -- UndoTree
 vim.keymap.set('n', '<leader>u', '<Cmd>UndotreeToggle<CR>', {noremap=true, silent=true})
 
