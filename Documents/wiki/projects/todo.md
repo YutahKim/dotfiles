@@ -54,5 +54,5 @@
   ## Cuatomed keyboard for android
 
   ## fineance
-
-  - [X] change logo
+    - [ ] Fix CreditExpenses class
+    - [ ] fix not saving data
