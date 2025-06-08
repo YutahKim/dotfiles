@@ -22,6 +22,7 @@
     install btop
     install swaync notification
     dmenu https://www.youtube.com/watch?v=4JWeU78A95c&ab_channel=BreadonPenguins
+    install dur draw
 
 ## zsh
 
