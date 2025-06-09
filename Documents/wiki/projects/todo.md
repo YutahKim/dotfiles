@@ -54,5 +54,5 @@
   ## Cuatomed keyboard for android
 
   ## fineance
-    - [ ] Fix CreditExpenses class
-    - [ ] fix not saving data
+    - [ ] Fix newMonth when having waste
+    
