@@ -12,6 +12,7 @@
 %% * [[journal/|📓 Journal]]
 * [📓Todo](todo)
 * [[projects/todo|💻 Projects]]
+* [[study/index|📚 Reading List]]
 * [[notes/|🧠 Notes]]
 * [[todos/|✅ Todos]]
 * [[quotes/|📜 Quotes]]
