@@ -54,5 +54,8 @@
   ## Cuatomed keyboard for android
 
   ## fineance
-    - [ ] Fix newMonth when having waste
-    
+    - [ ] Run expo doctor
+          Running "expo doctor"
+          Running 15 checks on your project...
+          12/15 checks passed. 3 checks failed. Possible issues detected:
+          Use the --verbose flag to see more details about passed checks.
