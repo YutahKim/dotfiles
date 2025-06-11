@@ -35,6 +35,10 @@
     install nvim compatible pane plugin
 
 ## Nvim
+  - [ ] Add mapping for Lspsaga show diagnosis or check if already exists
+  - [ ] Install better plugin for showing mappings
+  - [ ] Update C-d and C-u to 5 rows length
+
 
 ### Fixes
 
