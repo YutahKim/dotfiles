@@ -26,6 +26,9 @@
   ## Weekly Call Scheduler App (Vite + React + FastAPI)
 
     - [-] remove tg message and replace it with a psswored rar
+    - [ ] Save tokken and encript it on the database
+    - [ ] Add session control
+    - [ ] Add prefered dates and hours for each user based on previous votations
 
     - [-] Polygon "Loading Cat" Animation
       Adjust it to spin and change shape as it rotates.
