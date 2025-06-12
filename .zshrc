@@ -27,7 +27,7 @@ alias resodual="xrandr --output DP-2 --mode  1720x1440 --output DP-1 --mode 2560
 alias ll="lsd -l"
 alias ls="lsd -a"
 alias cat="bat"
-alias vmconf="nvim /home/yutah/.config/nvim/"
+alias vmconf="nvim ${HOME}/.config/nvim/"
 
 #tldr tool for better man
 alias mn="tldr"
