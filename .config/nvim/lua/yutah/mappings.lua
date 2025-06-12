@@ -8,10 +8,10 @@ vim.api.nvim_set_keymap('n','<leader>wa', ':wa<CR>', { noremap = true, silent = 
 vim.api.nvim_set_keymap('n','<leader>qa', ':wqa<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n','<leader>qq', ':q!<CR>', { noremap = true, silent = true })
 
--- Move down and up just 10 rows
+--Yank without clipboard override
 vim.keymap.set('x', "p", "\"_dP")
 
---Yank without clipboard override
+-- lower length of movement
 vim.keymap.set('n', '<C-d>', '10jzz', { noremap = true })
 vim.keymap.set('n', '<C-u>', '10kzz', { noremap = true })
 
