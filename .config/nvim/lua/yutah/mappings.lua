@@ -8,8 +8,18 @@ vim.api.nvim_set_keymap('n','<leader>wa', ':wa<CR>', { noremap = true, silent = 
 vim.api.nvim_set_keymap('n','<leader>qa', ':wqa<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n','<leader>qq', ':q!<CR>', { noremap = true, silent = true })
 
+-- Move down and up just 10 rows
+vim.keymap.set('x', "p", "\"_dP")
+
 --Yank without clipboard override
-vim.keymap.set('x', "<leader>p", "\"_dP")
+vim.keymap.set('n', '<C-d>', '10jzz', { noremap = true })
+vim.keymap.set('n', '<C-u>', '10kzz', { noremap = true })
+
+-- Move centered
+vim.keymap.set('n', 'j', 'jzz', { noremap = true })
+vim.keymap.set('n', 'k', 'kzz', { noremap = true })
+vim.keymap.set('n', 'n', 'nzz', { noremap = true })
+vim.keymap.set('n', 'N', 'Nzz', { noremap = true })
 
 -- Key mappings for Telescope
 vim.api.nvim_set_keymap('n', '<leader>ff', '<Cmd>Telescope find_files<CR>', { noremap = true, silent = true })
@@ -42,13 +52,6 @@ vim.keymap.set("v", ">", ">gv", opts)
 
 --clean highlighs
 vim.keymap.set("n", "<C-c>", ":nohl<CR>", { desc = "Clear dearch hl", silent = true})
-
---Moving with centered code
-vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
-
---Stay centered
-vim.keymap.set({ 'n', 'v' }, '<leader>st',function () require("stay-centered").toggle() end, { desc = 'Toggle stay-centered.nvim' })
 
 -- Session managing
 -- load the session for the current directory

@@ -35,7 +35,7 @@ require('lazy').setup({
         config = function()
             require("mason").setup()
             require("mason-lspconfig").setup({
-              ensure_installed = { "ts_ls", "pyright", "html", "cssls", "lua_ls" }
+              ensure_installed = { "ts_ls", "pyright", "html", "cssls", "lua_ls", "cpplint", "beautysh"}
           })
       end
   },
@@ -121,7 +121,7 @@ require('lazy').setup({
           end
 
           -- Setup servers
-          local servers = { "ts_ls", "pyright", "html", "cssls", "lua_ls" }
+          local servers = { "ts_ls", "pyright", "html", "cssls", "lua_ls", "clang_format"}
           for _, lsp in ipairs(servers) do
               lspconfig[lsp].setup({
                   on_attach = on_attach,
@@ -407,10 +407,6 @@ require('lazy').setup({
     end
   },
 
- --Stay centered
- {
-  'arnamak/stay-centered.nvim'
-},
 --For commentary
 {
    "tpope/vim-commentary",
