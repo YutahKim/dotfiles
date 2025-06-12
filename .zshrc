@@ -29,6 +29,9 @@ alias ls="lsd -a"
 alias cat="bat"
 alias vmconf="nvim /home/yutah/.config/nvim/"
 
+#tldr tool for better man
+alias mn="tldr"
+
 #git alias
 alias gf="git fetch"
 alias gpl="git pull"
