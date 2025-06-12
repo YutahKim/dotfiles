@@ -35,7 +35,7 @@ require('lazy').setup({
         config = function()
             require("mason").setup()
             require("mason-lspconfig").setup({
-              ensure_installed = { "ts_ls", "pyright", "html", "cssls", "lua_ls", "cpplint", "beautysh"}
+              ensure_installed = { "ts_ls", "pyright", "html", "cssls", "lua_ls", "clangd"}
           })
       end
   },
