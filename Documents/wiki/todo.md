@@ -36,6 +36,7 @@
 
 ## Nvim
   - [ ] Install better plugin for showing mappings
+  - [ ] Update keybindings to append yanks "Ay "ap
 
 
 ### Fixes
