@@ -41,6 +41,199 @@ newUserLogin(sandy);
 getOldestOneTimeVisitingUser(); should return chriss
 
 
+
+
+// Given a sequence of user logins, find the users who logged only once.
+// Let's say we are working on a shopping website and we want to analyze non
+// returning users to offer them some promotions to get their attention again.
+
+// We know that every user has their unique usernames, so we can track whether
+// they are visiting the website again or not.
+
+// For this task we need to implement below methods.
+
+// newUserLogin(username): This method will be called every time a user logs in
+// getOldestOneTimeVisitingUser(): This method will return the username of the
+// oldest customer who has visited the website only once. Example:
+
+// newUserLogin(john);
+// newUserLogin(jeff);
+// newUserLogin(jeff);
+// getOldestOneTimeVisitingUser(); should return john
+// newUserLogin(chriss);
+// newUserLogin(john);
+// newUserLogin(adam);
+// newUserLogin(sandy);
+// getOldestOneTimeVisitingUser(); should return chriss
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+struct Node {
+  struct Node *next;
+  char *name;
+};
+
+struct Pile {
+  struct Node *root;
+};
+
+// funtions prototypes
+int comp_str(char *str1, char *str2);
+
+void push(struct Node *root, struct Node *new_node) {
+  if (root->next == NULL) {
+    root->next = (struct Node *)malloc(sizeof(struct Node));
+    root->next = new_node;
+    new_node->next = NULL;
+    printf("\nUser %s added succesfully", new_node->name);
+    return;
+  } else {
+    push(root->next, new_node);
+  }
+}
+
+int search_duplicate(struct Pile *pile, struct Node *root, struct Node *prev,
+                     char *name) {
+  if (prev == NULL) {
+    printf("\nprev Null");
+  } else {
+    printf("\nprev %s", prev->name);
+  }
+  printf("\nSearching for %s, currently on %s", name, root->name);
+  if (comp_str(root->name, name) == 1) {
+    printf("\n User %s already registered", name);
+    if (root->next == NULL) {
+      printf("\nUser is on last position so no action needed");
+    } else {
+      if (prev != NULL) {
+        prev->next = (struct Node *)malloc(sizeof(struct Node));
+        prev->next = root->next;
+      }
+      if (prev == NULL) {
+        pile->root = root;
+      }
+      if (root->next != NULL) {
+        push(root->next, root);
+      }
+    }
+    return 1;
+  } else if (root->next == NULL) {
+    printf("User %s not found so, adding it at last", name);
+    struct Node *new_node = (struct Node *)malloc(sizeof(struct Node));
+    new_node->name = name;
+    new_node->next = NULL;
+    push(root, new_node);
+    return 0;
+  }
+  if (root->next != NULL) {
+    search_duplicate(pile, root->next, root, name);
+  }
+  return 0;
+}
+
+void newUserLogin(struct Pile *pile, char *name) {
+  printf("\nAdding a new user %s", name);
+  if (pile->root == NULL) {
+    pile->root = (struct Node *)malloc(sizeof(struct Node));
+    pile->root->name = name;
+    pile->root->next = (struct Node *)malloc(sizeof(struct Node));
+    pile->root->next = NULL;
+  } else {
+    int user_already_registered = 0;
+    struct Node *foundNode = (struct Node *)malloc(sizeof(struct Node));
+    foundNode = NULL;
+
+    user_already_registered =
+        search_duplicate(pile, pile->root, foundNode, name);
+  }
+}
+
+char *getOldestOneTimeVisitingUser(struct Pile *pile) {
+  printf("\n------------\n");
+  printf("\noldest user %s\n", pile->root->name);
+  printf("\n------------\n");
+  return pile->root->name;
+}
+
+int len(char *str) {
+  int i = 0;
+  while (*str != '\0') {
+    str++;
+    i++;
+  }
+  return i;
+}
+
+void print_pile(struct Pile *pile) {
+  struct Node *current_node = pile->root;
+  if (current_node != NULL) {
+    printf("\n----\n");
+    printf("\n%s -> \n", current_node->name);
+    printf("\n----\n");
+  }
+  while (current_node->next != NULL) {
+    printf("\n----\n");
+    printf("\n%s -> \n", current_node->next->name);
+    printf("\n----\n");
+    current_node = current_node->next;
+  }
+}
+int comp_str(char *str1, char *str2) {
+  int len1 = len(str1);
+  int len2 = len(str2);
+  printf("\n comparing %s with %s\n", str1, str2);
+  if (len1 != len2) {
+    return 0;
+  } else {
+    for (int i = 0; i < len1; i++) {
+      if (str1[i] != str2[i]) {
+        return 0;
+      }
+    }
+  }
+  return 1;
+}
+
+int testCase(struct Pile *pile) {
+  printf("Running test cases");
+  int testResult = 0;
+  printf("Running test cases");
+
+  newUserLogin(pile, "john");
+  print_pile(pile);
+  newUserLogin(pile, "jeff");
+  print_pile(pile);
+  newUserLogin(pile, "jeff");
+  print_pile(pile);
+  testResult += comp_str(getOldestOneTimeVisitingUser(pile), "john");
+  newUserLogin(pile, "chriss");
+  print_pile(pile);
+  newUserLogin(pile, "john");
+  print_pile(pile);
+  newUserLogin(pile, "john");
+  print_pile(pile);
+  newUserLogin(pile, "adam");
+  print_pile(pile);
+  newUserLogin(pile, "sandy");
+  print_pile(pile);
+  testResult += comp_str(getOldestOneTimeVisitingUser(pile), "chriss");
+  printf("%d test cases passed", testResult);
+  return testResult;
+}
+
+int main() {
+  struct Pile *pile;
+  pile = (struct Pile *)malloc(sizeof(struct Pile));
+  printf("pile created\n");
+  pile->root = NULL;
+  printf("root node created\n");
+  testCase(pile);
+
+  return 0;
+}
+
 ___
 
 Design a system that allows users to share files with each other
