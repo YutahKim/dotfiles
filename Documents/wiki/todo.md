@@ -37,6 +37,7 @@
 ## Nvim
   - [ ] Install better plugin for showing mappings
   - [ ] Update keybindings to append yanks "Ay "ap
+  - [ ] Install sound on nvim for saving and mode changes
 
 
 ### Fixes
