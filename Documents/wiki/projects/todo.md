@@ -39,6 +39,7 @@
 
   ## Mr. Robot Reviewer (FastAPI backend using StarChat)
     - [ ] Enhance even more the response from the AI with https://docs.together.ai/docs/json-mode?_gl=1*1jwg8d1*_gcl_au*MTMwNTk5ODgyNS4xNzQ2MzAzNjk1*_ga*NzgzODc1MTkwLjE3NDYzMDM2OTQ.*_ga_BS43X21GZ2*czE3NDk2MzA2MDUkbzkkZzEkdDE3NDk2MzA2MjIkajQzJGwwJGgw*_ga_BBHKJ5V8S0*czE3NDk2MzA2MDUkbzkkZzEkdDE3NDk2MzA2MjIkajQzJGwwJGgw
+    - [ ] pending the endpoint setup from the frontend
   
   ## 3DMotionPortfolio
 
