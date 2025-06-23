@@ -121,7 +121,7 @@ require('lazy').setup({
           end
 
           -- Setup servers
-          local servers = { "ts_ls", "pyright", "html", "cssls", "lua_ls", "clang_format"}
+          local servers = { "ts_ls", "pyright", "html", "cssls", "lua_ls"}
           for _, lsp in ipairs(servers) do
               lspconfig[lsp].setup({
                   on_attach = on_attach,
