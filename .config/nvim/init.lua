@@ -524,6 +524,13 @@ require('lazy').setup({
   end,
 },
 
+{
+    "nvzone/typr",
+    dependencies = "nvzone/volt",
+    opts = {},
+    cmd = { "Typr", "TyprStats" },
+},
+
   -- Start screen
   {
   'goolord/alpha-nvim',
