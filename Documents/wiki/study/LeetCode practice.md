@@ -1,7 +1,7 @@
 - [o] Merge Sorted Array:
   - [X] Solved
   - [ ] Pending optimization
-- [ ] Remove Element
+- [X] Remove Element
 - [ ] Remove Duplicates from Sorted Array
 - [ ] Remove Duplicates from Sorted Array II
 - [ ] Majority Element
