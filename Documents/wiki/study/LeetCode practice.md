@@ -2,13 +2,13 @@
   - [X] Solved
   - [ ] Pending optimization
 - [X] Remove Element
-- [ ] Remove Duplicates from Sorted Array
-- [ ] Remove Duplicates from Sorted Array II
-- [ ] Majority Element
-- [ ] Rotate Array
-- [ ] Best Time to Buy and Sell Stock
+- [X] Remove Duplicates from Sorted Array
+- [X] Remove Duplicates from Sorted Array II
+- [X] Majority Element
+- [X] Rotate Array
+- [X] Best Time to Buy and Sell Stock
 - [ ] Best Time to Buy and Sell Stock II
-- [ ] Jump Game
+- [X] Jump Game
 - [ ] Jump Game II
 - [ ] H-Index
 - [ ] Insert Delete GetRandom O(1)
@@ -36,7 +36,7 @@
 - [ ] Substring with Concatenation of All Words
 - [ ] Minimum Window Substring
 - [ ] Matrix
-- [ ] Valid Sudoku
+- [X] Valid Sudoku
 - [ ] Spiral Matrix
 - [ ] Rotate Image
 - [ ] Set Matrix Zeroes
