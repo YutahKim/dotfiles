@@ -500,30 +500,36 @@ require('lazy').setup({
         -- configuration goes here
     },
 },
-
-----Markdown render
---{
---  'MeanderingProgrammer/render-markdown.nvim',
---  dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
---  -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
---  -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
---  ---@module 'render-markdown'
---  ---@type render.md.UserConfig
---  opts = {},
---},
-
-{"vimwiki/vimwiki",
+{
+  "lervag/wiki.vim",
+  -- tag = "v0.10", -- uncomment to pin to a specific release
   init = function()
-      vim.g.vimwiki_list = {
-          {
-          path = '~/docs/vimwiki',
-          syntax = 'markdown',
-          ext = '.md',
-          },
-      }
-  end,
+    -- wiki.vim configuration goes here, e.g.
+  end
 },
 
+-- {"vimwiki/vimwiki",
+--   init = function()
+--       vim.g.vimwiki_list = {
+--           {
+--           path = '~/docs/vimwiki',
+--           syntax = 'markdown',
+--           ext = '.md',
+--           },
+--       }
+--   end,
+-- },
+
+--Markdown render
+{
+  'MeanderingProgrammer/render-markdown.nvim',
+  -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
+  dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+  -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+  ---@module 'render-markdown'
+  ---@type render.md.UserConfig
+  opts = {},
+},
 {
     "nvzone/typr",
     dependencies = "nvzone/volt",
