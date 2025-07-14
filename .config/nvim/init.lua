@@ -250,7 +250,7 @@ require('lazy').setup({
     "marko-cerovac/material.nvim",
     priority = 1000,
     config = function()
-      vim.g.material_style = "deep ocean" -- Options: darker, lighter, oceanic, palenight, deep ocean
+      vim.g.material_style = "darker" -- Options: darker, lighter, oceanic, palenight, deep ocean
       require("material").setup({
         contrast = {
           terminal = false,
@@ -284,7 +284,7 @@ require('lazy').setup({
         },
         high_visibility = {
           lighter = false,
-          darker = false,
+          darker = true,
         },
         lualine_style = "default", -- Options: default, stealth
         async_loading = true,
