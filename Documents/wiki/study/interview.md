@@ -1,17 +1,18 @@
 Logical and maintainable
 prepare:
   keep talking
-  couchable
+  be couchable
   
 datastruc
-  set array que 
-  hash binary tree
-  justify structure
-  time complexity
+  sets
+  array queues 
+  hash
+  binary tree
+  time complexity (big O)
 
 problem solving
-  ambiguous 
-  clarifying questions
+  1. deal with ambiguity
+  make clarifying questions
   solve
   scope
   minimal hints

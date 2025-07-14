@@ -1,14 +1,14 @@
-- [X] Merge Sorted Array:
-  - [X] Solved
-  - [X] Pending optimization
-- [X] Remove Element
-- [X] Remove Duplicates from Sorted Array
-- [X] Remove Duplicates from Sorted Array II
-- [X] Majority Element
-- [X] Rotate Array
-- [X] Best Time to Buy and Sell Stock
+- [x] Merge Sorted Array:
+  - [x] Solved
+  - [x] Pending optimization
+- [x] Remove Element
+- [x] Remove Duplicates from Sorted Array
+- [x] Remove Duplicates from Sorted Array II
+- [x] Majority Element
+- [x] Rotate Array
+- [x] Best Time to Buy and Sell Stock
 - [ ] Best Time to Buy and Sell Stock II
-- [X] Jump Game
+- [x] Jump Game
 - [ ] Jump Game II
 - [ ] H-Index
 - [ ] Insert Delete GetRandom O(1)
@@ -36,7 +36,7 @@
 - [ ] Substring with Concatenation of All Words
 - [ ] Minimum Window Substring
 - [ ] Matrix
-- [X] Valid Sudoku
+- [x] Valid Sudoku
 - [ ] Spiral Matrix
 - [ ] Rotate Image
 - [ ] Set Matrix Zeroes
@@ -71,7 +71,8 @@
 - [ ] Remove Nth Node From End of List
 - [ ] Remove Duplicates from Sorted List II
 - [ ] Rotate List
-- [ ] Partition List
+- [x] Partition List
+  - [ ] Pending optimization
 - [ ] LRU Cache
 - [ ] Binary Tree General
 - [ ] Maximum Depth of Binary TreeEasy
