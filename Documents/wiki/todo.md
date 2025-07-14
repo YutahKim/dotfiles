@@ -23,6 +23,7 @@
     install swaync notification
     dmenu https://www.youtube.com/watch?v=4JWeU78A95c&ab_channel=BreadonPenguins
     install dur draw
+    install uwsm for initiating wayland
 
 ## zsh
 
@@ -35,24 +36,23 @@
     install nvim compatible pane plugin
 
 ## Nvim
-  - [ ] Install better plugin for showing mappings
-  - [ ] Update keybindings to append yanks "Ay "ap
-  - [ ] Install sound on nvim for saving and mode changes
 
+- [ ] Install better plugin for showing mappings
+- [ ] Update keybindings to append yanks "Ay "ap
+- [ ] Install sound on nvim for saving and mode changes
 
 ### Fixes
 
-  - [ ] Fix flash vim with more visible jump char or search for alternatives (last part of this github)
-        https://github.com/folke/flash.nvim
-  - [ ] Shortcut to hide notifications
+- [ ] Fix flash vim with more visible jump char or search for alternatives (last part of this github)
+      https://github.com/folke/flash.nvim
+- [ ] Shortcut to hide notifications
 
 ### Plugins
 
-  - [ ] Intrall undo tree
-  - [ ] Add pending stuff of this video https://www.youtube.com/watch?v=FGVY7gbaoQI&ab_channel=SethPhaeno
-  - [ ] Multiple cursors
-  - [ ] which-key.nvim
-  - [ ] update the tree explorer to mark the current file (may be changin tree Manager)
-  - [ ] change the principal page of nvim and remove save workspace plugins
-  - [ ] wikivim
-
+- [ ] Intrall undo tree
+- [ ] Add pending stuff of this video https://www.youtube.com/watch?v=FGVY7gbaoQI&ab_channel=SethPhaeno
+- [ ] Multiple cursors
+- [ ] which-key.nvim
+- [ ] update the tree explorer to mark the current file (may be changin tree Manager)
+- [ ] change the principal page of nvim and remove save workspace plugins
+- [ ] wikivim
