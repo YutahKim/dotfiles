@@ -69,7 +69,7 @@ Intensive 6-week LeetCode prep plan focused on algorithm and data structure mast
 - Ransom Note
 - Isomorphic Strings
 - Word Pattern
-- Valid Anagram
+- [-] Valid Anagram
 - Reverse Words in a String
 - Longest Common Prefix
 
