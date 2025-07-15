@@ -1,231 +1,231 @@
-# ✅ STUDY PLAN — AI Code Reviewer + LeetCode + Systems Thinking
+# 6-Week Intensive LeetCode Study Plan (With Mock Interviews)
 
-## WEEKLY PLAN STRUCTURE
+## 🚀 Objective
 
-Each week:
-3 Core Study Sessions: Focus on new topics.
-2 Practice Sessions: Apply what you've learned via LeetCode + mock problems.
-1 Review & Optimize: Refactor, write documentation, discuss root causes.
-Follow the Troubleshooting + Problem Solving frameworks as you code.
+Intensive 6-week LeetCode prep plan focused on algorithm and data structure mastery for top-tier software engineering interviews. Includes:
 
-## WEEK 1–2: Arrays & Sliding Windows
+- Key topics
+- Problem-solving techniques
+- Interview simulation
+- Time complexity analysis
 
-### Topics:
+---
 
-Array traversal
-Prefix sums
-Two Pointers
-Sliding Window
-Time Complexity (O(1), O(n), O(n²))
+## 📚 Core Topics Covered
 
-### LeetCode Focus:
+- Arrays & Two Pointers
+- Hashing & Sets
+- Binary Trees & Graphs
+- Sliding Window
+- Stacks & Queues
+- Dynamic Programming
+- Bit Manipulation
+- Heaps & Intervals
+- Math & Logic
 
-✅ Best Time to Buy and Sell Stock II
-⏳ Jump Game II
-⏳ Minimum Size Subarray Sum
-⏳ Longest Substring Without Repeating Characters
-⏳ Container With Most Water
+---
 
-### Concepts:
+## 📅 Weekly Plan Summary
 
-Explain edge cases (negative numbers, empty arrays)
-Ask constraint clarifying questions (time/space bounds)
-Optimize brute-force → greedy/DP
+### ✅ Week 1: Arrays & Two Pointers
 
-### Problem Solving:
+**Topics:**
 
-Document constraints
-Clarify edge behavior
-Write helper functions with docstrings
-Add validations (e.g., input.length > 0)
-Write unit test for sliding window boundaries
+- Arrays
+- Two Pointers
+- Sorting
 
-## WEEK 3–4: HashMaps & Sets
+**LeetCode Problems:**
 
-Topics:
+- Best Time to Buy and Sell Stock II
+- Jump Game II
+- H-Index
+- Product of Array Except Self
+- Container With Most Water
+- Two Sum II - Input Array Is Sorted
+- Valid Palindrome
+- Is Subsequence
 
-Hash table design
+**Practice:**
 
-Set operations
+- Solve 2 problems daily
+- Review Big-O of sorting algorithms
 
-Frequency counting
+**Mock Interview #1:** End of week, 1 Array + 1 Two Pointers problem live with peer/coach
 
-Detecting cycles or duplicates
+---
 
-LeetCode Focus:
+### ✅ Week 2: Hashmaps, Sets & Strings
 
-⏳ Product of Array Except Self
+**Topics:**
 
-⏳ Group Anagrams
+- Hash Table
+- Set
+- String manipulation
 
-⏳ Two Sum
+**LeetCode Problems:**
 
-⏳ Contains Duplicate II
+- Group Anagrams
+- Ransom Note
+- Isomorphic Strings
+- Word Pattern
+- Valid Anagram
+- Reverse Words in a String
+- Longest Common Prefix
 
-⏳ Longest Consecutive Sequence
+**Practice:**
 
-⏳ Ransom Note
+- Focus on time-space trade-offs
+- Comment constraints, validations, and optimizations
 
-Concepts:
+**Mock Interview #2:**
 
-Time-space tradeoffs
+- 1 string problem + 1 hashmap problem
 
-Choosing between arrays vs maps
+---
 
-Hash collisions & chaining (discuss in interview)
+### ✅ Week 3: Sliding Window & Substrings
 
-Practice:
+**Topics:**
 
-Implement your own hash map briefly
+- Sliding Window
+- Prefix Sums
 
-Describe collisions and probing strategies
+**LeetCode Problems:**
 
-Add runbook comments for O(n) logic
+- Minimum Size Subarray Sum
+- Longest Substring Without Repeating Characters
+- Substring with Concatenation of All Words
+- Minimum Window Substring
 
-## WEEK 5–6: Strings & Substring Patterns
+**Practice:**
 
-Topics:
+- Use debugging logs to trace window size/growth
+- Write unit tests with edge cases
 
-String traversal
+**Mock Interview #3:**
 
-Character maps
+- Focus on window pattern + Big-O tracing aloud
 
-Validity checks (anagrams, palindromes)
+---
 
-LeetCode Focus:
+### ✅ Week 4: Trees & Graphs
 
-⏳ Reverse Words in a String
+**Topics:**
 
-⏳ Longest Common Prefix
+- Binary Trees
+- DFS/BFS
+- Graphs
 
-⏳ Is Subsequence
+**LeetCode Problems:**
 
-⏳ Valid Palindrome
+- Maximum Depth of Binary Tree
+- Same Tree
+- Invert Binary Tree
+- Symmetric Tree
+- Binary Tree Level Order Traversal
+- Number of Islands
+- Course Schedule
 
-⏳ Minimum Window Substring (hard)
+**Practice:**
 
-Practice:
+- Sketch tree traversals before coding
+- Clarify if tree is balanced, full, etc.
 
-Build string utilities module
+**Mock Interview #4:**
 
-Document helper methods (strip, reverse, etc.)
+- 1 BFS or DFS problem, plus edge-case analysis
 
-Add test cases for punctuation, whitespace, edge cases
+---
 
-## WEEK 7–8: Stacks & Intervals
+### ✅ Week 5: Stacks, Queues, Intervals, Heaps
 
-Topics:
+**Topics:**
 
-Stack usage (bracket matching, expression evaluation)
+- Stack & Queue usage
+- Interval merging
+- Heap priority problems
 
-Interval merging and sorting
+**LeetCode Problems:**
 
-LeetCode Focus:
+- Valid Parentheses
+- Simplify Path
+- Min Stack
+- Merge Intervals
+- Insert Interval
+- Minimum Number of Arrows to Burst Balloons
+- Kth Largest Element in an Array
 
-⏳ Valid Parentheses
+**Practice:**
 
-⏳ Simplify Path
+- Analyze time complexity of stack operations
+- Design custom classes to wrap intervals
 
-⏳ Merge Intervals
+**Mock Interview #5:**
 
-⏳ Insert Interval
+- Stack or interval problem under 30 minutes
 
-⏳ Min Stack
+---
 
-Practice:
+### ✅ Week 6: Dynamic Programming, Bit Manipulation, Final Review
 
-Use stack visualizations
+**Topics:**
 
-Diagram step-by-step operations
+- 1D & 2D DP
+- Bit tricks
 
-Document edge case conditions in stack logic
+**LeetCode Problems:**
 
-## WEEK 9–10: Binary Trees (DFS/BFS)
+- Climbing Stairs
+- House Robber
+- Coin Change
+- Longest Palindromic Substring
+- Edit Distance
+- Reverse Bits
+- Single Number
+- Pow(x,n)
 
-Topics:
+**Practice:**
 
-Binary tree traversal (inorder, preorder, postorder)
+- Use bottom-up + memoization comparisons
+- Refactor solutions for readability
 
-Recursive vs iterative
+**Mock Interview #6 (Final):**
 
-BFS/DFS strategies
+- 1 Medium + 1 Hard DP or Bit problem
+- Final performance review
 
-LeetCode Focus:
+---
 
-⏳ Invert Binary Tree
+## 🧠 Problem Solving Checklist (for every problem)
 
-⏳ Symmetric Tree
+1. Read constraints aloud
+2. Ask clarifying questions
+3. Discuss brute force
+4. Solve step-by-step (talk out loud)
+5. Optimize (if time permits)
+6. Add doc comments, validations
+7. Write unit test or dry-run
+8. Discuss time-space complexity
 
-⏳ Maximum Depth of Binary Tree
+---
 
-⏳ Construct Binary Tree from Preorder + Inorder
+## 📌 Enterprise Readiness Skills
 
-⏳ Path Sum
+- Time complexity fluency
+- Error handling & logging
+- Code structure & modularity
+- Being coachable & collaborative
+- Troubleshooting: root cause & documentation
 
-Practice:
+---
 
-Recap recursive tree traversal
+## 🎯 Goal
 
-Show time complexity per traversal type
+By the end of Week 6, be interview-ready for:
 
-Write debug logs for each visit step
+- DSA technical screens
+- Whiteboard interviews
+- System design primers (bonus)
 
-## WEEK 11–12: Graphs & BFS/DFS
-
-Topics:
-
-Graph representation (adjacency list/matrix)
-
-BFS traversal, visited set
-
-Topological sort
-
-LeetCode Focus:
-
-⏳ Number of Islands
-
-⏳ Clone Graph
-
-⏳ Course Schedule
-
-⏳ Evaluate Division
-
-⏳ Word Ladder
-
-Practice:
-
-Mock problems on whiteboard
-
-Explain recursion stack vs queue for BFS
-
-Document visit order + decision branches
-
-## WEEK 13–14: DP & 1D Patterns
-
-Topics:
-
-Memoization & Tabulation
-
-State definition
-
-Overlapping subproblems
-
-LeetCode Focus:
-
-⏳ Climbing Stairs
-
-⏳ House Robber
-
-⏳ Longest Increasing Subsequence
-
-⏳ Word Break
-
-⏳ Coin Change
-
-Practice:
-
-Convert brute force to memo
-
-Write decision tree for recursive state
-
-Use @lru_cache in Python for experiments
+Let me know if you'd like a printable PDF version or progress tracker.

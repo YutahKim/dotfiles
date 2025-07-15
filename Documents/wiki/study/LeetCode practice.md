@@ -9,7 +9,7 @@
 - [x] Best Time to Buy and Sell Stock
 - [ ] Best Time to Buy and Sell Stock II
 - [x] Jump Game
-- [ ] Jump Game II
+- [x] Jump Game II
 - [ ] H-Index
 - [ ] Insert Delete GetRandom O(1)
 - [ ] Product of Array Except Self
@@ -31,7 +31,8 @@
 - [ ] Container With Most Water
 - [ ] 3Sum
 - [ ] Sliding Window
-- [ ] Minimum Size Subarray Sum
+- [x] Minimum Size Subarray Sum
+  - [ ] Pending optimization
 - [ ] Longest Substring Without Repeating Characters
 - [ ] Substring with Concatenation of All Words
 - [ ] Minimum Window Substring
