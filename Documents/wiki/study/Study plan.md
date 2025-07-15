@@ -31,15 +31,15 @@ Intensive 6-week LeetCode prep plan focused on algorithm and data structure mast
 
 **Topics:**
 
-- Arrays
-- Two Pointers
-- Sorting
+- [-] Arrays
+- [-] Two Pointers
+- [-] Sorting
 
 **LeetCode Problems:**
 
-- Best Time to Buy and Sell Stock II
-- Jump Game II
-- H-Index
+- [-] Best Time to Buy and Sell Stock II
+- [-] Jump Game II
+- [-] H-Index
 - Product of Array Except Self
 - Container With Most Water
 - Two Sum II - Input Array Is Sorted
