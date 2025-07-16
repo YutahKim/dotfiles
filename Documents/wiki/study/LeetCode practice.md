@@ -77,7 +77,7 @@
 - [ ] LRU Cache
 - [ ] Binary Tree General
 - [x] Maximum Depth of Binary TreeEasy
-- [ ] Same TreeEasy
+- [x] Same Tree
 - [ ] Invert Binary TreeEasy
 - [ ] Symmetric TreeEasy
 - [ ] Construct Binary Tree from Preorder and Inorder Traversal
