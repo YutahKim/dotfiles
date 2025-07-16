@@ -119,8 +119,8 @@ Intensive 6-week LeetCode prep plan focused on algorithm and data structure mast
 
 **LeetCode Problems:**
 
-- Maximum Depth of Binary Tree
-- Same Tree
+- [-] Maximum Depth of Binary Tree
+- [-] Same Tree
 - Invert Binary Tree
 - Symmetric Tree
 - Binary Tree Level Order Traversal
