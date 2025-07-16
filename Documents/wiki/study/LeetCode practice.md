@@ -91,7 +91,7 @@
 - [ ] Count Complete Tree NodesEasy
 - [ ] Lowest Common Ancestor of a Binary Tree
 - [ ] Binary Tree BFS
-- [ ] Binary Tree Right Side View
+- [x] Binary Tree Right Side View
 - [ ] Average of Levels in Binary TreeEasy
 - [ ] Binary Tree Level Order Traversal
 - [ ] Binary Tree Zigzag Level Order Traversal
