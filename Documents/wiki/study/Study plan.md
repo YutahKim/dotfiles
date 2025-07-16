@@ -70,7 +70,7 @@ Intensive 6-week LeetCode prep plan focused on algorithm and data structure mast
 - Isomorphic Strings
 - Word Pattern
 - [-] Valid Anagram
-- Reverse Words in a String
+- [-] Reverse Words in a String
 - Longest Common Prefix
 
 **Practice:**
@@ -94,7 +94,7 @@ Intensive 6-week LeetCode prep plan focused on algorithm and data structure mast
 **LeetCode Problems:**
 
 - Minimum Size Subarray Sum
-- Longest Substring Without Repeating Characters
+- [-] Longest Substring Without Repeating Characters
 - Substring with Concatenation of All Words
 - Minimum Window Substring
 
