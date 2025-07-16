@@ -76,7 +76,7 @@
   - [ ] Pending optimization
 - [ ] LRU Cache
 - [ ] Binary Tree General
-- [ ] Maximum Depth of Binary TreeEasy
+- [x] Maximum Depth of Binary TreeEasy
 - [ ] Same TreeEasy
 - [ ] Invert Binary TreeEasy
 - [ ] Symmetric TreeEasy
