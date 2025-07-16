@@ -33,7 +33,7 @@
 - [ ] Sliding Window
 - [x] Minimum Size Subarray Sum
   - [ ] Pending optimization
-- [ ] Longest Substring Without Repeating Characters
+- [x] Longest Substring Without Repeating Characters
 - [ ] Substring with Concatenation of All Words
 - [ ] Minimum Window Substring
 - [ ] Matrix
