@@ -22,24 +22,24 @@ require('lazy').setup({
     requires = { 'nvim-tree/nvim-web-devicons' },
     config = function()
       require('nvim-tree').setup()
-      end
-    },
-   
-    -- Add Mason to your plugin list
-    {
-        "williamboman/mason.nvim",
-        dependencies = {
-            "williamboman/mason-lspconfig.nvim",
-            "neovim/nvim-lspconfig",
-        },
-        config = function()
-            require("mason").setup()
-            require("mason-lspconfig").setup({
-              ensure_installed = { "ts_ls", "pyright", "html", "cssls", "lua_ls", "clangd"}
-          })
-      end
+    end
   },
-   -- LuaSnip for snippets
+
+  -- Add Mason to your plugin list
+  {
+    "williamboman/mason.nvim",
+    dependencies = {
+      "williamboman/mason-lspconfig.nvim",
+      "neovim/nvim-lspconfig",
+    },
+    config = function()
+      require("mason").setup()
+      require("mason-lspconfig").setup({
+        ensure_installed = { "ts_ls", "pyright", "html", "cssls", "lua_ls", "clangd" }
+      })
+    end
+  },
+  -- LuaSnip for snippets
   {
     'L3MON4D3/LuaSnip',
     config = function()
@@ -50,93 +50,94 @@ require('lazy').setup({
       require('luasnip.loaders.from_vscode').lazy_load()
     end
   },
-   -- Autocomplete setup
- {
+
+  --Autocomplete setup
+  {
     'hrsh7th/nvim-cmp',
     dependencies = {
-        'hrsh7th/cmp-nvim-lsp',
-        'hrsh7th/cmp-buffer',
-        'hrsh7th/cmp-path',
-        'hrsh7th/cmp-cmdline',
-        'L3MON4D3/LuaSnip',
-        'saadparwaiz1/cmp_luasnip',
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-cmdline',
+      'L3MON4D3/LuaSnip',
+      'saadparwaiz1/cmp_luasnip',
     },
     config = function()
-        local cmp = require('cmp')
-        local luasnip = require('luasnip')
-        
-        cmp.setup({
-            snippet = {
-                expand = function(args)
-                    luasnip.lsp_expand(args.body)
-                end
-            },
-            mapping = cmp.mapping.preset.insert({
-                ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-                ['<C-f>'] = cmp.mapping.scroll_docs(4),
-                ['<C-Space>'] = cmp.mapping.complete(),
-                ['<C-e>'] = cmp.mapping.abort(),
-                ['<CR>'] = cmp.mapping.confirm({ select = true }),
-                ['<Tab>'] = cmp.mapping(function(fallback)
-                    if cmp.visible() then
-                        cmp.select_next_item()
-                    else
-                        fallback()
-                    end
-                end, { 'i', 's' }),
-                ['<S-Tab>'] = cmp.mapping(function(fallback)
-                    if cmp.visible() then
-                        cmp.select_prev_item()
-                    else
-                        fallback()
-                    end
-                end, { 'i', 's' }),
-            }),
-            sources = cmp.config.sources({
-                { name = 'nvim_lsp' },
-                { name = 'luasnip' },
-                { name = 'buffer' },
-                { name = 'path' }
-            })
+      local cmp = require('cmp')
+      local luasnip = require('luasnip')
+
+      cmp.setup({
+        snippet = {
+          expand = function(args)
+            luasnip.lsp_expand(args.body)
+          end
+        },
+        mapping = cmp.mapping.preset.insert({
+          ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+          ['<C-f>'] = cmp.mapping.scroll_docs(4),
+          ['<C-Space>'] = cmp.mapping.complete(),
+          ['<C-e>'] = cmp.mapping.abort(),
+          ['<CR>'] = cmp.mapping.confirm({ select = true }),
+          ['<Tab>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_next_item()
+            else
+              fallback()
+            end
+          end, { 'i', 's' }),
+          ['<S-Tab>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_prev_item()
+            else
+              fallback()
+            end
+          end, { 'i', 's' }),
+        }),
+        sources = cmp.config.sources({
+          { name = 'nvim_lsp' },
+          { name = 'luasnip' },
+          { name = 'buffer' },
+          { name = 'path' }
         })
+      })
     end
   },
-   -- LSP (Language Server Protocol)
-   {
-      'neovim/nvim-lspconfig',
-      dependencies = {
-          'hrsh7th/cmp-nvim-lsp',
-      },
-      config = function()
-          local lspconfig = require('lspconfig')
-          local capabilities = require('cmp_nvim_lsp').default_capabilities()
+  --LSP (Language Server Protocol)
+  {
+    'neovim/nvim-lspconfig',
+    dependencies = {
+      'hrsh7th/cmp-nvim-lsp',
+    },
+    config = function()
+      local lspconfig = require('lspconfig')
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-          -- Common on_attach function
-          local on_attach = function(client, bufnr)
-              local bufopts = { noremap=true, silent=true, buffer=bufnr }
-              vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-              vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-              vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-              vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
-          end
-
-          -- Setup servers
-          local servers = { "ts_ls", "pyright", "html", "cssls", "lua_ls"}
-          for _, lsp in ipairs(servers) do
-              lspconfig[lsp].setup({
-                  on_attach = on_attach,
-                  capabilities = capabilities,
-              })
-          end
+      -- Common on_attach function
+      local on_attach = function(client, bufnr)
+        local bufopts = { noremap = true, silent = true, buffer = bufnr }
+        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+        vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+        vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
       end
+
+      -- Setup servers
+      local servers = { "ts_ls", "pyright", "html", "cssls", "lua_ls" }
+      for _, lsp in ipairs(servers) do
+        lspconfig[lsp].setup({
+          on_attach = on_attach,
+          capabilities = capabilities,
+        })
+      end
+    end
   },
   {
     "nvimdev/lspsaga.nvim",
     dependencies = { "nvim-lspconfig", "nvim-treesitter", "nvim-web-devicons" },
     config = function()
       require("lspsaga").setup({
-        ui = { border = "rounded" }, -- Rounded corners for popups
-        hover = { max_width = 0.7 }, -- Adjust hover window size
+        ui = { border = "rounded" },          -- Rounded corners for popups
+        hover = { max_width = 0.7 },          -- Adjust hover window size
         symbol_in_winbar = { enable = true }, -- Show current function in winbar
       })
 
@@ -149,7 +150,7 @@ require('lazy').setup({
       vim.keymap.set("n", "<leader>gr", "<cmd>Lspsaga finder<CR>", { desc = "Find References" })
     end,
   },
- -- Telescope
+  -- Telescope
   {
     'nvim-telescope/telescope.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
@@ -163,36 +164,36 @@ require('lazy').setup({
             },
           },
         },
-         extensions = {
-    project = {
-      base_dirs = {
-        { "~/Documents/", max_depth = 2 },
-        { "~/.config", max_depth = 2 },
-      },
-      hidden_files = true,
-    },
-  },
+        extensions = {
+          project = {
+            base_dirs = {
+              { "~/Documents/", max_depth = 2 },
+              { "~/.config",    max_depth = 2 },
+            },
+            hidden_files = true,
+          },
+        },
       }
     end
   },
 
--- {
---   "ahmedkhalf/project.nvim",
---   config = function()
---     require("project_nvim").setup()
---   end,
--- },
-{
-  "mbbill/undotree"
-},
-{
-  "nvim-telescope/telescope-project.nvim",
-  dependencies = { "nvim-telescope/telescope.nvim" },
-  config = function()
-    require("telescope").load_extension("project")
-  end,
-},
-  
+  -- {
+  --   "ahmedkhalf/project.nvim",
+  --   config = function()
+  --     require("project_nvim").setup()
+  --   end,
+  -- },
+  {
+    "mbbill/undotree"
+  },
+  {
+    "nvim-telescope/telescope-project.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim" },
+    config = function()
+      require("telescope").load_extension("project")
+    end,
+  },
+
   -- Treesitter for better syntax highlighting
   {
     'nvim-treesitter/nvim-treesitter',
@@ -203,17 +204,17 @@ require('lazy').setup({
         auto_install = true,
         highlight = {
           enable = true,
-          additional_vim_regex_highlighting = {'markdown'},
+          additional_vim_regex_highlighting = { 'markdown' },
         },
       }
     end
   },
-  
+
   -- Git integration
   {
     'tpope/vim-fugitive',
   },
-  
+
   -- Git signs
   {
     'lewis6991/gitsigns.nvim',
@@ -222,7 +223,7 @@ require('lazy').setup({
       require('gitsigns').setup()
     end
   },
-  
+
   -- Statusline
   {
     'nvim-lualine/lualine.nvim',
@@ -235,17 +236,17 @@ require('lazy').setup({
       }
     end
   },
-  
+
   -- Colorscheme
---  {
- --   'gruvbox-community/gruvbox',
+  --  {
+  --   'gruvbox-community/gruvbox',
   --  config = function()
   --    vim.cmd 'colorscheme gruvbox'
   --    vim.o.background = 'dark'
- --   end
- -- },
-  
--- Material (Clean, minimal dark theme)
+  --   end
+  -- },
+
+  -- Material (Clean, minimal dark theme)
   {
     "marko-cerovac/material.nvim",
     priority = 1000,
@@ -299,7 +300,7 @@ require('lazy').setup({
       require('nvim-autopairs').setup {}
     end
   },
-  
+
   -- Commenting utility
   {
     'numToStr/Comment.nvim',
@@ -307,7 +308,7 @@ require('lazy').setup({
       require('Comment').setup()
     end
   },
-  
+
   -- Bufferline for tab-like buffers
   -- {
   --   'akinsho/bufferline.nvim',
@@ -316,29 +317,29 @@ require('lazy').setup({
   --     require('bufferline').setup {}
   --   end
   -- },
-  
+
   -- Indentation guides
   {
-  'lukas-reineke/indent-blankline.nvim',
-  config = function()
-    require('ibl').setup {
-      indent = { char = '│' },
-      scope = { enabled = false },
-    }
-  end
-  },
-
- -- Web devicons for file icons
-  {
-    'nvim-tree/nvim-web-devicons',
+    'lukas-reineke/indent-blankline.nvim',
     config = function()
-      require('nvim-web-devicons').setup {
-        default = true;  -- Enable default icons
+      require('ibl').setup {
+        indent = { char = '│' },
+        scope = { enabled = false },
       }
     end
   },
 
-   -- Persistence plugin
+  -- Web devicons for file icons
+  {
+    'nvim-tree/nvim-web-devicons',
+    config = function()
+      require('nvim-web-devicons').setup {
+        default = true, -- Enable default icons
+      }
+    end
+  },
+
+  -- Persistence plugin
   -- {
   --   'folke/persistence.nvim',
   --   config = function()
@@ -359,40 +360,40 @@ require('lazy').setup({
 
   --Which-key for binding preview
   {
-  "folke/which-key.nvim",
-  event = "VeryLazy",
-  opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-  },
-  keys = {
-    {
-      "<leader>?",
-      function()
-        require("which-key").show({ global = false })
-      end,
-      desc = "Buffer Local Keymaps (which-key)",
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    },
+    keys = {
+      {
+        "<leader>?",
+        function()
+          require("which-key").show({ global = false })
+        end,
+        desc = "Buffer Local Keymaps (which-key)",
+      },
     },
   },
-},
 
---easy navigation by searching words
-{
-  "folke/flash.nvim",
-  event = "VeryLazy",
-  ---@type Flash.Config
-  opts = {},
-  -- stylua: ignore
-  keys = {
-    { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-    { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
-    { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
-    { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-    { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+  --easy navigation by searching words
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    ---@type Flash.Config
+    opts = {},
+    -- stylua: ignore
+    keys = {
+      { "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
+      { "S",     mode = { "n", "x", "o" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
+      { "r",     mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
+      { "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+      { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
+    },
   },
-},
---Search and replace
+  --Search and replace
   {
     'MagicDuck/grug-far.nvim',
     config = function()
@@ -407,147 +408,147 @@ require('lazy').setup({
     end
   },
 
---For commentary
-{
-   "tpope/vim-commentary",
-   event = "VeryLazy",
-},
+  --For commentary
+  {
+    "tpope/vim-commentary",
+    event = "VeryLazy",
+  },
 
---Better command line
--- lazy.nvim
-{
-  "folke/noice.nvim",
-  event = "VeryLazy",
-  opts = {
-    -- add any options here
+  --Better command line
+  -- lazy.nvim
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    opts = {
+      -- add any options here
       presets = {
-      bottom_search = true,  -- example preset
-      command_palette = true,
-    },
-  },
-  dependencies = {
-    -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-    "MunifTanjim/nui.nvim",
-    -- OPTIONAL:
-    --   `nvim-notify` is only needed, if you want to use the notification view.
-    --   If not available, we use `mini` as the fallback
-    "rcarriga/nvim-notify",
-    }
-},
-{
-  "rcarriga/nvim-notify",
-  config = function()
-    require("notify").setup({
-      background_colour = "#1a1b26", -- Change this to match your theme
-    })
-  end,
-},
-
-{
-  'nvimdev/dashboard-nvim',
-  event = 'VimEnter',
-  config = function()
-    require('dashboard').setup {
-	    config = {
-  shortcut = {
-    -- action can be a function type
-    { desc = string, group = 'highlight group', key = 'shortcut key', action = 'action when you press key' },
-  },
-  packages = { enable = true }, -- show how many plugins neovim loaded
-  -- limit how many projects list, action when you press key or enter it will run this action.
-  -- action can be a function type, e.g.
-  -- action = func(path) vim.cmd('Telescope find_files cwd=' .. path) end
-  project = { enable = true, limit = 8, icon = 'your icon', label = '', action = 'Telescope find_files cwd=' },
-  mru = { enable = true, limit = 10, icon = 'your icon', label = '', cwd_only = false },
-  footer = {}, -- footer
-}
-    }
-  end,
-  dependencies = { {'nvim-tree/nvim-web-devicons'}}
-},
-
---Prettier plugin
-{
-  "nvimtools/none-ls.nvim",
-  dependencies = { "nvim-lua/plenary.nvim" },
-  config = function()
-    local null_ls = require("null-ls")
-    null_ls.setup({
-      sources = {
-        null_ls.builtins.formatting.prettier,
-
-        -- Python
-        null_ls.builtins.formatting.black,
-        null_ls.builtins.formatting.isort,
-
-        -- C, C++
-        null_ls.builtins.formatting.clang_format,
+        bottom_search = true, -- example preset
+        command_palette = true,
       },
-    })
-  end,
-},
+    },
+    dependencies = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      "MunifTanjim/nui.nvim",
+      -- OPTIONAL:
+      --   `nvim-notify` is only needed, if you want to use the notification view.
+      --   If not available, we use `mini` as the fallback
+      "rcarriga/nvim-notify",
+    }
+  },
+  {
+    "rcarriga/nvim-notify",
+    config = function()
+      require("notify").setup({
+        background_colour = "#1a1b26", -- Change this to match your theme
+      })
+    end,
+  },
 
-{
-  "kawre/leetcode.nvim",
-  build = ":TSUpdate html", -- if you have `nvim-treesitter` installed
-  dependencies = {
+  {
+    'nvimdev/dashboard-nvim',
+    event = 'VimEnter',
+    config = function()
+      require('dashboard').setup {
+        config = {
+          shortcut = {
+            -- action can be a function type
+            { desc = string, group = 'highlight group', key = 'shortcut key', action = 'action when you press key' },
+          },
+          packages = { enable = true }, -- show how many plugins neovim loaded
+          -- limit how many projects list, action when you press key or enter it will run this action.
+          -- action can be a function type, e.g.
+          -- action = func(path) vim.cmd('Telescope find_files cwd=' .. path) end
+          project = { enable = true, limit = 8, icon = 'your icon', label = '', action = 'Telescope find_files cwd=' },
+          mru = { enable = true, limit = 10, icon = 'your icon', label = '', cwd_only = false },
+          footer = {}, -- footer
+        }
+      }
+    end,
+    dependencies = { { 'nvim-tree/nvim-web-devicons' } }
+  },
+
+  --Prettier plugin
+  {
+    "nvimtools/none-ls.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      local null_ls = require("null-ls")
+      null_ls.setup({
+        sources = {
+          null_ls.builtins.formatting.prettier,
+
+          -- Python
+          null_ls.builtins.formatting.black,
+          null_ls.builtins.formatting.isort,
+
+          -- C, C++
+          null_ls.builtins.formatting.clang_format,
+        },
+      })
+    end,
+  },
+
+  {
+    "kawre/leetcode.nvim",
+    build = ":TSUpdate html", -- if you have `nvim-treesitter` installed
+    dependencies = {
       "nvim-telescope/telescope.nvim",
       -- "ibhagwan/fzf-lua",
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
-  },
-  opts = {
+    },
+    opts = {
       -- configuration goes here
+    },
   },
-},
-{
-  "lervag/wiki.vim",
-  -- tag = "v0.10", -- uncomment to pin to a specific release
-  init = function()
-    -- wiki.vim configuration goes here, e.g.
-  end
-},
+  {
+    "lervag/wiki.vim",
+    -- tag = "v0.10", -- uncomment to pin to a specific release
+    init = function()
+      -- wiki.vim configuration goes here, e.g.
+    end
+  },
 
---Markdown render
-{
-  'MeanderingProgrammer/render-markdown.nvim',
-  -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
-  dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
-  -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
-  ---@module 'render-markdown'
-  ---@type render.md.UserConfig
-  opts = {},
-},
-{
+  --Markdown render
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
+    opts = {},
+  },
+  {
     "nvzone/typr",
     dependencies = "nvzone/volt",
     opts = {},
     cmd = { "Typr", "TyprStats" },
-},
+  },
 
-{
-  "alex-popov-tech/store.nvim",
-  dependencies = {
-    "OXY2DEV/markview.nvim", -- optional, for pretty readme preview / help window
+  {
+    "alex-popov-tech/store.nvim",
+    dependencies = {
+      "OXY2DEV/markview.nvim", -- optional, for pretty readme preview / help window
+    },
+    cmd = "Store",
+    keys = {
+      { "<leader>s", "<cmd>Store<cr>", desc = "Open Plugin Store" },
+    },
+    opts = {
+      -- optional configuration here
+    },
   },
-  cmd = "Store",
-  keys = {
-    { "<leader>s", "<cmd>Store<cr>", desc = "Open Plugin Store" },
-  },
-  opts = {
-    -- optional configuration here
-  },
-},
 
   -- Start screen
   {
-  'goolord/alpha-nvim',
-  requires = { 'nvim-tree/nvim-web-devicons' },
-  config = function()
-    local startify = require('alpha.themes.startify')
-    startify.nvim_web_devicons = false  -- Ensure icons are enabled
-    require('alpha').setup(startify.config)
-  end
+    'goolord/alpha-nvim',
+    requires = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      local startify = require('alpha.themes.startify')
+      startify.nvim_web_devicons = false -- Ensure icons are enabled
+      require('alpha').setup(startify.config)
+    end
   },
 
 })

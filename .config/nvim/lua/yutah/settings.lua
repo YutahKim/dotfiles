@@ -16,7 +16,7 @@ vim.opt.clipboard:append("unnamedplus")
 vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
 vim.opt.updatetime = 300
 vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = { "*.js", "*.ts", "*.jsx", "*.tsx", "*.json", "*.css", "*.scss", "*.md", "*.py", "*.c", "*.cpp", "*.cs" },
+  pattern = { "*.lua", "*.js", "*.ts", "*.jsx", "*.tsx", "*.json", "*.css", "*.scss", "*.md", "*.py", "*.c", "*.cpp", "*.cs" },
   callback = function()
     vim.lsp.buf.format({ async = false })
   end,
