@@ -24,9 +24,9 @@ SAVEHIST=3000
 #alias
 alias reso="xrandr --output DP-2 --mode  3440x1440 --rate 100.00  --output DP-1 --mode 2560x1440 --right-of DP-2"
 alias resodual="xrandr --output DP-2 --mode  1720x1440 --output DP-1 --mode 2560x1440 --right-of DP-2"
-alias ll="lsd -l"
+alias ll="lsd -l -a"
 alias ls="lsd -a"
-alias cat="bat"
+alias cat="batcat"
 alias vmconf="nvim ${HOME}/.config/nvim/"
 
 #tldr tool for better man
