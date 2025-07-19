@@ -25,6 +25,10 @@
     install dur draw
     install uwsm for initiating wayland
 
+### nvim config migration from custom to lazyvim
+    integrate custom plugins 
+    
+
 ## zsh
 
     Create alias for git recurrent commands
